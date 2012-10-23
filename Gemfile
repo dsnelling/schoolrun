@@ -14,6 +14,10 @@ group :test do
   gem "mysql2", "~> 0.3.11"
 end
 
+group :production do
+  gem "pg"
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

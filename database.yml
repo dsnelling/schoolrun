@@ -23,8 +23,9 @@ test:
   timeout: 5000
 
 production:
-  adapter: 
+  adapter:
   database:
   pool: 5
   timeout: 5000
+
 
