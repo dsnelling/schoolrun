@@ -1,0 +1,36 @@
+%h2 Transport for ....
+- if @occupant.errors.any?
+  #error_explanation
+  %h2
+    = pluralize(@occupant.errors.count, "error")
+    prohibited this event from being saved:
+
+  %ul
+    - @occupant.errors.full_messages.each do |msg|
+      %li= msg
+%p
+  %b
+    #{@occupant.user.first_name} #{@occupant.user.surname}
+  needs transport for
+
+
+%p
+  %b Event:
+  = @occupant.event.title
+
+%p
+  %b Date & Time:
+  #{@occupant.event.event_date} at #{@occupant.event.event_time.strftime("%H:%M")}
+
+%p
+  %b Remarks:
+  = @occupant.remarks
+
+%p
+  %b Status:
+  = @occupant.status
+
+
+= link_to 'Edit', edit_occupant_path(@occupant)
+|
+= link_to 'Back', events_path

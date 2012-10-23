@@ -1,0 +1,29 @@
+<h1>Listing drivers</h1>
+
+<table>
+  <tr>
+    <th>Event</th>
+    <th>User</th>
+    <th>Status</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @drivers.each do |driver| %>
+  <tr>
+    <td><%= driver.event_id %></td>
+    <td><%= driver.user_id %></td>
+    <td><%= driver.status %></td>
+    <td><%= driver.comment %></td>
+    <td><%= link_to 'Show', driver %></td>
+    <td><%= link_to 'Edit', edit_driver_path(driver) %></td>
+    <td><%= link_to 'Destroy', driver, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Driver', new_driver_path %>

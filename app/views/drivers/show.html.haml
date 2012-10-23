@@ -1,0 +1,32 @@
+%h1 Driver for .....
+- if @driver.errors.any?
+  #error_explanation
+  %h2
+    = pluralize(@driver.errors.count, "error")
+    prohibited this event from being saved:
+
+  %ul
+    - @driver.errors.full_messages.each do |msg|
+      %li= msg
+%p
+  %b
+    #{@driver.user.first_name} #{@driver.user.surname}
+  is driver for
+
+%p
+  %b Event:
+  = @driver.event.title
+%p
+  %b Date & Time
+  #{@driver.event.event_date} at 
+  #{@driver.event.event_time.strftime("%H:%M")}
+%p
+  %b Remarks:
+  = @driver.remarks
+%p
+  %b Status:
+  = @driver.status
+
+= link_to 'Edit', edit_driver_path(@driver)
+|
+= link_to 'Back', events_path

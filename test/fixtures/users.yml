@@ -1,0 +1,40 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+<% SALT = "salt_pepper" unless defined?(SALT) %>
+one:
+  name: MyString-one
+  hashed_password: MyString
+  salt: MyString
+  email: MyString-one@YourString
+  role: Student
+  first_name: MyString
+  surname: MyString
+
+two:
+  name: MyString-two
+  hashed_password: MyString
+  salt: MyString
+  email: MyString-two@yourstring
+  role: Parent
+  first_name: MyString
+  surname: MyString
+
+bill:
+  name: bill
+  hashed_password: <%= Digest::SHA2.hexdigest("verysecret") %>
+  salt: SALT
+  email: bill@here
+  role: Parent
+  first_name: Bill
+  surname: Smith
+
+william:
+  name: william
+  hashed_password: <%= User.encrypt_password('seventeen', SALT) %>
+  salt: <%= SALT %>
+  email: william@histroy.org
+  role: Parent
+  first_name: William
+  surname: Jones
+
+

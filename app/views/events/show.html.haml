@@ -1,0 +1,48 @@
+%h1 Events
+- if @event.errors.any?
+  #error_explanation
+  %h2
+    = pluralize(@event.errors.count, "error")
+    prohibited this event from being saved:
+
+  %ul
+    - @event.errors.full_messages.each do |msg|
+      %li= msg
+
+
+%p
+  %b Title:
+  = @event.title
+%p
+  %b Description:
+  = @event.description
+%p
+  %b To/From:
+  = @event.to_from
+%p
+  %b Event date:
+  = @event.event_date
+%p
+  %b Event time:
+  = @event.event_time.strftime("%H:%M")
+%p
+  %b Location:
+  = @event.location
+%p
+  %b Status:
+  = @event.status
+
+%h3 Students:
+%table
+  =render :partial => "occupant_e", :collection => @event.occupants || "No students"
+
+%h3 Drivers:
+%table
+  =render :partial => "driver_e", :collection => @event.drivers || "No drivers"
+
+%br/
+= link_to 'Edit', edit_event_path(@event)
+|
+= link_to 'Destroy', event_path(@event), method: :delete, data: { confirm: 'Are you sure?' }
+|
+= link_to 'Back', events_path

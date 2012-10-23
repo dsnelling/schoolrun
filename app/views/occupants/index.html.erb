@@ -1,0 +1,27 @@
+<h1>Listing occupants</h1>
+
+<table>
+  <tr>
+    <th>Event</th>
+    <th>User</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @occupants.each do |occupant| %>
+  <tr>
+    <td><%= occupant.event_id %></td>
+    <td><%= occupant.user_id %></td>
+    <td><%= occupant.status %></td>
+    <td><%= link_to 'Show', occupant %></td>
+    <td><%= link_to 'Edit', edit_occupant_path(occupant) %></td>
+    <td><%= link_to 'Destroy', occupant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Occupant', new_occupant_path %>

@@ -1,0 +1,21 @@
+// Place all the styles related to the occupants controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.occupant {
+  border: 1px solid #c0c0c0;
+
+  form {
+    display: inline;
+  
+    div {
+      display: inline;
+    }
+  }
+  .annotation {
+  color: #006600;
+  font-style: italic;
+  }
+}
+
+

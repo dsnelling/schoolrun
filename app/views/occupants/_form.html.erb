@@ -1,0 +1,22 @@
+  <% if @occupant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@occupant.errors.count, "error") %> prohibited this occupant from being saved:</h2>
+
+      <ul>
+      <% @occupant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.hidden_field :event_id %>
+  <%= f.hidden_field :user_id %>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.select :status, Occupant::STATUS_TYPES %>
+  </div>
+  <div class="field">
+    <%= f.label :remarks %><br />
+    <%= f.text_area :remarks, :rows => 2 %>
+  </div>
+

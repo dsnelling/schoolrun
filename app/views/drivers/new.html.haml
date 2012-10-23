@@ -1,0 +1,33 @@
+%h2 Nominate as Driver for:
+%p
+  #{@event.event_date} at
+  #{@event.event_time.strftime("%H:%M")} ::
+  %b= @event.title 
+
+= form_for @driver, :url => drivers_path(:event_id => @event.id) do |f|
+  - if @driver.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@driver.errors.count, "error")
+        prohibited this driver from being saved:
+
+      %ul
+        - @driver.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.hidden_field :event_id
+  = f.hidden_field :user_id
+
+  .field
+    = f.label :status
+    %br/
+    = f.select :status, Driver::STATUS_TYPES
+  .field
+    = f.label :remarks
+    %br/
+    = f.text_area :remarks, :rows => 2
+  .actions
+    = f.submit "Save"
+
+|
+= link_to 'Back', drivers_path

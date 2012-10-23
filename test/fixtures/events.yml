@@ -1,0 +1,30 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  to_from: MyString
+  event_date: 2012-10-12
+  event_time: 2012-10-12 21:15:31
+  location: MyString
+  status: MyString
+
+two:
+  title: MyString
+  description: MyText
+  to_from: MyString
+  event_date: 2012-10-12
+  event_time: 2012-10-12 21:15:31
+  location: MyString
+  status: MyString
+
+leh:
+  description: "afterschool netball pickup, St Pauls"
+  event_date: "2012-10-10"
+  event_time: "18:00"
+  location: "LEH"
+  status: "OK"
+  to_from: "To"
+  title: "afterschool netball"
+
+

@@ -1,0 +1,105 @@
+/* schoolrun.css.scss - styles common to many pages */
+
+/* =============  overall layout styles ================ */
+
+/* banner is across the top of each page */
+
+#banner {
+  background: #ccc;
+  height: 120px;
+  padding: 0px;
+  border-bottom: 2px solid;
+  font: small-caps 40px/40px "Times New Roman", serif;
+  color: #990000;
+  text-align: center;
+
+   img {
+    float: left;
+   }
+
+}
+
+#notice {
+  color: #000;
+  border: 2px solid red;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: #f0f0f0;
+  font: bold smaller sans-serif;
+}
+
+#user-banner {
+     font-size: 10px;
+     font-style: italic;
+     text-align: right;
+     color: #990000;
+     vertical-align: bottom;
+}
+
+/* body as 2-column arrangement */
+
+#columns {
+  background: #FFB2B2;
+}
+
+#main {
+  margin-left: 10em;
+  padding: 0em 1em 0em 1em;
+  background: white;
+}
+#side {
+  float: left;
+  padding: 1em 2em;
+  width: 6em;
+  background: #FFB2B2;
+}
+#side a {
+  color: #990000;
+}
+#side ul {
+  padding: 0;
+}
+#side li {
+  list-style: none;
+}
+
+#footer {
+  font-size: 10px;
+  font-style: italic;
+  text-align: center;
+}
+
+/* tables for listings on index pages */
+
+.list-table {
+  border-collapse: collapse;
+  }
+
+.list-header {
+  background-color: #ccc;
+  border: 1px solid silver ;
+  }
+.list-line-odd {
+  background-color: #fff;
+  }
+
+.list-line-even {
+  background-color: #eee;
+  }
+
+.list-cell {
+  border: 1px solid silver;
+  padding: 2px 4px 2px 4px;
+  }
+.list-cell-number {
+  border: 1px solid silver;
+  text-align: right;
+  }
+
+.list-cell-total {
+  border: 1px solid silver;
+  text-align: right;
+  font-weight: bold;
+  }
+
+

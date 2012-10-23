@@ -1,0 +1,34 @@
+!!!
+%html
+  %head
+    %title Schoolrun: #{controller.controller_name}.#{controller.action_name}
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body
+    #banner
+      = image_tag "heading.png", :height => 120
+      = @page_title
+      School Run
+
+
+    #columns
+      #side
+        %ul
+          %li= link_to "Home", events_url
+          %li= link_to "Users", users_url
+          %li= link_to "Logout", logout_url
+
+      #main
+        - if @user
+          #user-banner
+            #{@user.first_name} #{@user.surname} logged in
+
+        = yield
+
+    #footer
+      %hr/
+      %p SchoolRun Copyright &copy; Duncan
+
+
