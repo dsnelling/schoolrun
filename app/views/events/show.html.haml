@@ -1,4 +1,4 @@
-%h1 Events
+%h1= "Event : #{@event.title}"
 - if @event.errors.any?
   #error_explanation
   %h2
@@ -9,40 +9,47 @@
     - @event.errors.full_messages.each do |msg|
       %li= msg
 
-
-%p
-  %b Title:
-  = @event.title
-%p
-  %b Description:
-  = @event.description
-%p
-  %b To/From:
-  = @event.to_from
-%p
-  %b Event date:
-  = @event.event_date
-%p
-  %b Event time:
-  = @event.event_time.strftime("%H:%M")
-%p
-  %b Location:
-  = @event.location
-%p
-  %b Status:
-  = @event.status
+.schoolrun_show
+  %p
+    %span.show-title Description:
+    %span.show-data= @event.description
+  %p
+    %span.show-title To/From:
+    %span.show-data= @event.to_from
+  %p
+    %span.show-title Event date:
+    %span.show-data= @event.event_date
+  %p
+    %span.show-title Event time:
+    %span.show-data= @event.event_time.strftime("%H:%M")
+  %p
+    %span.show-title Location:
+    %span.show-data= @event.location
+  %p
+    %span.show-title Status:
+    %span.show-data= @event.status
 
 %h3 Students:
-%table
-  =render :partial => "occupant_e", :collection => @event.occupants || "No students"
+.show-details
+  %table
+    =render :partial => "occupant_e",
+      :collection => @event.occupants || "No students"
+  - if @user.role == "Student"
+    = link_to "Request Pickup", new_occupant_path(:event_id => @event.id)
+
 
 %h3 Drivers:
-%table
-  =render :partial => "driver_e", :collection => @event.drivers || "No drivers"
+.show-details
+  %table
+    =render :partial => "driver_e",
+      :collection => @event.drivers || "No drivers"
+  - if @user.role == "Parent"
+    = link_to "Nominate as Driver", new_driver_path(:event_id => @event.id)
 
 %br/
-= link_to 'Edit', edit_event_path(@event)
+%br/
+= link_to 'Edit Event', edit_event_path(@event)
 |
-= link_to 'Destroy', event_path(@event), method: :delete, data: { confirm: 'Are you sure?' }
+= link_to 'Destroy Event', event_path(@event), method: :delete, data: { confirm: 'Are you sure?' }
 |
 = link_to 'Back', events_path

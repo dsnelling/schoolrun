@@ -1,8 +1,15 @@
-.occupant
 %tr
   %td.list-cell
-    = occupant_e.user.first_name
-    = occupant_e.user.surname
+    -if @user.id == occupant_e.user.id
+      =link_to "#{occupant_e.user.first_name} #{occupant_e.user.surname}",
+        edit_occupant_path(occupant_e)
+    - else
+      #{occupant_e.user.first_name} #{occupant_e.user.surname}
   %td.list-cell= occupant_e.status
   %td.list-cell= occupant_e.remarks
+  %td.list-cell
+    - if @user.role == "Student" && @user.id == occupant_e.user.id
+      = button_to "Leave", occupant_path(occupant_e.id), :method => :delete 
+    &nbsp;
+
 

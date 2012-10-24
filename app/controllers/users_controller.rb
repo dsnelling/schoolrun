@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_filter :is_admin
+  before_filter :check_admin, :except => :index
+
   # GET /users
   # GET /users.json
   def index
@@ -84,4 +87,16 @@ class UsersController < ApplicationController
     end
   end
 
+  private
+    # seems we are duplicating this, but to avoid clash of users
+    def is_admin
+      user_id = session[:user_id]
+      redirect_to login_url, :notice => "Please login" unless user_id
+      logged_in_as = User.find(user_id)
+      @is_admin = ( logged_in_as.role == "Admin")
+    end
+
+    def check_admin
+      redirect_to users unless @is_admin
+    end
 end

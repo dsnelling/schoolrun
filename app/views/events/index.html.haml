@@ -18,10 +18,8 @@
       %th.list-cell Description
       %th.list-cell Location
       %th.list-cell Date/Time
-      -#%th.list-cell Status
       %th.list-cell Occupants
       %th.list-cell Drivers
-      %th.lsit-cell Action
 
     - @events.each do |event|
       %tr{:valign => "top", :class => cycle('list-line-odd', 'list-line-even')}
@@ -32,16 +30,10 @@
           = event.event_date
           %br/
           = event.event_time.strftime("%H:%M")
-        -#%td.list-cell= event.status
         %td.list-cell
           = render(event.occupants)
         %td.list-cell
           = render(event.drivers)
-        %td.list-cell
-          - if @user.role == "Student"
-            = link_to "Join", new_occupant_path(:event_id => event)
-          - if @user.role == "Parent"
-            = link_to "Join", new_driver_path(:event_id => event)
 
   %span.annotation
     R = Remark

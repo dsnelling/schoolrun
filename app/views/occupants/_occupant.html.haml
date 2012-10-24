@@ -1,10 +1,8 @@
 .occupant
-  = link_to  "#{occupant.user.first_name} #{occupant.user.surname}",
-    occupant_path(occupant)
+  = occupant.user.first_name
+  =occupant.user.surname
   %span.annotation
     = "R" if occupant.remarks.to_s.length > 0
     = "T" if occupant.status == "Tentative"
 
-  - if @user.role == "Student" && @user.id == occupant.user.id
-    = button_to "Leave", occupant_path(occupant.id), :method => :delete 
 

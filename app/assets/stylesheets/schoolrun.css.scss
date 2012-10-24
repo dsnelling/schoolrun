@@ -90,7 +90,17 @@
 .list-cell {
   border: 1px solid silver;
   padding: 2px 4px 2px 4px;
+  
+  form {
+    display: inline;
+    vertical-align: center;
+
+    div {
+      display: inline;
+    }
   }
+}
+
 .list-cell-number {
   border: 1px solid silver;
   text-align: right;
@@ -101,5 +111,69 @@
   text-align: right;
   font-weight: bold;
   }
+
+/* ====== forms ==== */
+.schoolrun_form {
+  fieldset {
+    background: #ffdfdf;
+
+    legend {
+      color: #ffd1d1;
+      background: #93256e;
+      font-family: sans-serif;
+      padding: 0.2em 1em;
+    }
+  }
+
+  form {
+    label {
+      width: 5em;
+      float: left;
+      text-align: right;
+      padding-top: 0.2em;
+      margin-right: 0.1em;
+      display: block;
+    }
+
+    select, textarea, input {
+      margin-left: 3em;
+    }
+
+    .submit {
+      margin-left: 3em
+    }
+  }
+}
+
+/* ========= show pages ==========*/
+.schoolrun_show {
+
+  .show-title {
+    width: 8em;
+    float: left;
+    text-align: right;
+    padding-top: 0.2em;
+    margin-right: 0.1em;
+    display: block;
+    font-weight: bold;
+  }
+
+  .show-data {
+    margin-left: 0.5em;
+    padding-top: 0.4em;
+  }
+}
+
+/* ==== general styles - moved from scaffold css ===== */
+a {
+  color: #660066;
+  &:visited {
+    color: #66066;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
 
 

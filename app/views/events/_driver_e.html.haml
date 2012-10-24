@@ -1,8 +1,12 @@
-.driver
 %tr
   %td.list-cell
-    = driver_e.user.first_name
-    = driver_e.user.surname
+    -if @user.id == driver_e.user.id
+      = link_to "#{driver_e.user.first_name} #{driver_e.user.surname}",
+        edit_driver_path(driver_e)
   %td.list-cell= driver_e.status
   %td.list-cell= driver_e.remarks
+  %td.list-cell
+    - if @user.role == "Parent" && @user.id == driver_e.user.id
+      = button_to "Cry-Off", driver_path(driver_e.id), :method => :delete
+    &nbsp;
 

@@ -1,6 +1,13 @@
-%h1 Welcome Admin#index
+%h1 Welcome Admin
 
-%h2 LEH Sheen school run system
+%h2 School run system
+%h2 School: LEH
+
+%h3 Admin Menu
+
+%ul
+  %li= link_to "User Maintainence", users_path
+
 
 %p driverless events: #{@open_events }
 %p events with driver: #{@closed_events }

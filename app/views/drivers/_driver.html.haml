@@ -1,11 +1,8 @@
 .driver
-  = link_to "#{driver.user.first_name} #{driver.user.surname}",
-    driver_path(driver)
+  = driver.user.first_name
+  =driver.user.surname
   %span.annotation  
     = "R" if driver.remarks
     = "T" if driver.status == "Tentative"
-
-  - if @user.role == "Parent" && @user.id == driver.user.id
-    = button_to "Leave", driver_path(driver.id), :method => :delete
 
 
