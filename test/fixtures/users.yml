@@ -37,4 +37,14 @@ william:
   first_name: William
   surname: Jones
 
+admin:
+  name: fred
+  hashed_password:  <%= User.encrypt_password('fortyfour', SALT) %>
+  salt: <%= SALT %>
+  email: fred@testicles.org
+  role: Admin
+  first_name: Fred
+  surname: Smith
+
+
 

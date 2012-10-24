@@ -97,6 +97,6 @@ class UsersController < ApplicationController
     end
 
     def check_admin
-      redirect_to users unless @is_admin
+      redirect_to users_path unless @is_admin
     end
 end

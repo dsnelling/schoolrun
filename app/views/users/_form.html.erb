@@ -17,32 +17,32 @@
   <legend>Enter User Details</legend>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :password, 'Password' %><br />
+    <%= f.label :password, 'Password' %>
     <%= f.password_field :password, :size => 40 %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation, 'Confirm' %><br />
+    <%= f.label :password_confirmation, 'Confirm' %>
     <%= f.password_field :password_confirmation, :size => 40 %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :role %><br />
-    <%= f.text_field :role %>
+    <%= f.label :role %>
+    <%= f.select :role, User::ROLE_TYPES %>
   </div>
   <div class="field">
-    <%= f.label :first_name %><br />
+    <%= f.label :first_name %>
     <%= f.text_field :first_name %>
   </div>
   <div class="field">
-    <%= f.label :surname %><br />
+    <%= f.label :surname %>
     <%= f.text_field :surname %>
   </div>
   <div class="actions">
