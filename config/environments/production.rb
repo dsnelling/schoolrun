@@ -14,6 +14,9 @@ Schoolrun::Application.configure do
   # Compress JavaScripts and CSS
   config.assets.compress = true
 
+  # added here to get to complile in production - DS
+  config.assets.precompile += ['mobile.css']
+
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = false
 

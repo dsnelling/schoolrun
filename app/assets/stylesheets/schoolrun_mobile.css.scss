@@ -4,6 +4,12 @@
 
 /* banner is across the top of each page */
 
+body {
+  width: 480px;
+  padding: 3px;
+  margin: 0;
+}
+
 #banner {
   background: #ccc;
   height: 60px;
@@ -51,7 +57,7 @@
 #side {
   //float: left;
   padding: 0.1em 2em;
-  width: 90%;
+  //width: 90%;
   background: #FFB2B2;
 }
 #side a {
