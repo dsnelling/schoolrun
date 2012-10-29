@@ -69,6 +69,10 @@
   text-align: center;
 }
 
+.clear {
+  clear: both;
+}
+
 /* tables for listings on index pages */
 
 .list-table {
@@ -125,9 +129,24 @@
     }
   }
 
+  dt {
+    width: 8em;
+    float: left;
+    text-align: right;
+    font-weight: bold;
+    display: block;
+  }
+  dt:after {
+    content: ":";
+  }
+
+  dd {
+    margin-left: 11em;
+  }
+
   form {
     label {
-      width: 5em;
+      width: 8em;
       float: left;
       text-align: right;
       padding-top: 0.2em;
@@ -159,11 +178,31 @@
   }
 
   .show-data {
-    margin-left: 0.5em;
+    margin-left: 8.5em;
     padding-top: 0.4em;
   }
 }
+.schoolrun-list {
+  //border: 1px solid red;
+  padding: 0 0 1.5em 1em;
+  margin-bottom: 1em;
 
+  dt {
+    font-weight: bold;
+    float: left;
+    //float: clear;
+    margin: 0em 2em 0.2em 0em;
+    width: 8em;
+  }
+  dt:after {
+    content: ":";
+  }
+
+  dd {
+    margin: 0em 0em 0.2em 8.2em;
+    padding: 0 0 0 1em;
+  }
+}
 /* ==== general styles - moved from scaffold css ===== */
 a {
   color: #660066;

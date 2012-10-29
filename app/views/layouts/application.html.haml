@@ -17,7 +17,7 @@
       #side
         %ul
           %li= link_to "Home", events_url
-          %li= link_to "Users", users_url
+          %li= link_to "My Details", user_url(@user) if @user
           %li= link_to "Logout", logout_url
 
       #main

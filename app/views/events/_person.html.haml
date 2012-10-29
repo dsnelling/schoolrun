@@ -1,0 +1,24 @@
+-# _person.html.haml -- partial called as both occupant and driver.
+-# "occupant" or "driver" passed as parameter
+%tr
+  %td.list-cell
+    -if @user.id == person.user.id && person.user.role == "Student"
+      = link_to "#{person.user.first_name} #{person.user.surname}",
+        edit_occupant_path(person)
+    -elsif @user.id == person.user.id && person.user.role == "Parent"
+      = link_to "#{person.user.first_name} #{person.user.surname}",
+        edit_driver_path(person)
+    -else
+      #{person.user.first_name} #{person.user.surname}
+
+  %td.list-cell= person.status
+  %td.list-cell= person.remarks
+  %td.list-cell
+    - if @user.id == person.user.id && person.user.role == "Student"
+      = button_to "Cry-Off", occupant_path(person.id), :method => :delete
+    - elsif @user.id == person.user.id && person.user.role == "Parent"
+      = button_to "Cry-Off", driver_path(person.id), :method => :delete
+    &nbsp;
+.stuff
+
+

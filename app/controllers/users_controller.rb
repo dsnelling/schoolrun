@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :is_admin
-  before_filter :check_admin, :except => :index
+  #before_filter :check_admin, :except => [:index, :show ]
 
   # GET /users
   # GET /users.json
@@ -17,7 +17,12 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
+    #unless admin, can only show ourselves
+    if @is_admin
+      @user = User.find(params[:id])
+    else
+      current_user
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -62,15 +67,24 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
+    if @is_admin
+      a = params[:user]
+    else
+      a = { :password => params[:user][:password],
+        :password_confirmation => params[:user][:password_confirmation],
+        :email => params[:user][:email]
+        }
+    end
 
     respond_to do |format|
-      if @user.update_attributes(params[:user])
-        format.html { redirect_to users_url,
-          notice: "User #{@user.name} was successfully updated." }
+      if @user.update_attributes(a)
+        format.html { redirect_to user_url(@user),
+            notice: "User #{@user.name} was successfully updated." }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.json { render json: @user.errors,
+             status: :unprocessable_entity }
       end
     end
   end

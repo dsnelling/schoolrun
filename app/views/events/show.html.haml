@@ -9,30 +9,25 @@
     - @event.errors.full_messages.each do |msg|
       %li= msg
 
-.schoolrun_show
-  %p
-    %span.show-title Description:
-    %span.show-data= @event.description
-  %p
-    %span.show-title To/From:
-    %span.show-data= @event.to_from
-  %p
-    %span.show-title Event date:
-    %span.show-data= @event.event_date
-  %p
-    %span.show-title Event time:
-    %span.show-data= @event.event_time.strftime("%H:%M")
-  %p
-    %span.show-title Location:
-    %span.show-data= @event.location
-  %p
-    %span.show-title Status:
-    %span.show-data= @event.status
+%dl.schoolrun-list
+  %dt Description
+  %dd= @event.description
+  %dt To/From
+  %dd= @event.to_from
+  %dt Event date
+  %dd= @event.event_date
+  %dt Event time
+  %dd= @event.event_time.strftime("%H:%M")
+  %dt Location
+  %dd= @event.location
+  %dt Status
+  %dd= @event.status
 
+-#.clear
 %h3 Students:
 .show-details
   %table
-    =render :partial => "occupant_e",
+    =render :partial => "person",
       :collection => @event.occupants || "No students"
   - if @user.role == "Student"
     = link_to "Request Pickup", new_occupant_path(:event_id => @event.id)
@@ -41,7 +36,7 @@
 %h3 Drivers:
 .show-details
   %table
-    =render :partial => "driver_e",
+    =render :partial => "person",
       :collection => @event.drivers || "No drivers"
   - if @user.role == "Parent"
     = link_to "Nominate as Driver", new_driver_path(:event_id => @event.id)

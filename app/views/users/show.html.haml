@@ -1,0 +1,20 @@
+%h1 Show User
+- if notice
+  %p#notice= notice
+
+%dl.schoolrun-list
+  %dt Name
+  %dd= @user.name
+  %dt First name
+  %dd= @user.first_name
+  %dt Surname
+  %dd= @user.surname
+  %dt Email
+  %dd= @user.email
+  %dt Role
+  %dd= @user.role
+
+
+= link_to 'Edit', edit_user_path(@user)
+|
+= link_to 'Back', users_path

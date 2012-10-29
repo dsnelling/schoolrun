@@ -1,7 +1,7 @@
 %h1 Users
 - if notice
   %p#notice= notice
-%pre
+-#%pre
   = "user.name = +#{User.find(session[:user_id]).name}+, @is_admin = +#{@is_admin}+"
 
 %table.item-table

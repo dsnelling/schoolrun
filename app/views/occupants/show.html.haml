@@ -14,21 +14,17 @@
   needs transport for
 
 
-%p
-  %b Event:
-  = @occupant.event.title
-
-%p
-  %b Date & Time:
-  #{@occupant.event.event_date} at #{@occupant.event.event_time.strftime("%H:%M")}
-
-%p
-  %b Remarks:
-  = @occupant.remarks
-
-%p
-  %b Status:
-  = @occupant.status
+%dl.schoolrun-list
+  %dt Event
+  %dd= @occupant.event.title
+  %dt Date & Time
+  %dd #{@occupant.event.event_date} at #{@occupant.event.event_time.strftime("%H:%M")}
+  %dt Remarks
+  %dd
+    = @occupant.remarks
+    &nbsp;
+  %dt Status
+  %dd= @occupant.status
 
 
 = link_to 'Edit', edit_occupant_path(@occupant)
