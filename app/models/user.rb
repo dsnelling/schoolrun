@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :drivers
   #has_many :events, :through => :occupants
   attr_accessible :email, :first_name, :password, :name, :role,
-    :password_confirmation, :surname #, :occupant_attributes, :event_attributes
+    :password_confirmation, :surname, :change_password
   attr_accessor :password_confirmation
   attr_reader :password
 

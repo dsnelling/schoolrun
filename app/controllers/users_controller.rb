@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :is_admin
+  #before_filter :is_admin
   #before_filter :check_admin, :except => [:index, :show ]
 
   # GET /users
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     if @is_admin
       @user = User.find(params[:id])
     else
-      current_user
+      @user = current_user
     end
 
     respond_to do |format|
@@ -72,7 +72,7 @@ class UsersController < ApplicationController
     else
       a = { :password => params[:user][:password],
         :password_confirmation => params[:user][:password_confirmation],
-        :email => params[:user][:email]
+        :email => params[:user][:email], :change_password => false
         }
     end
 
@@ -103,12 +103,12 @@ class UsersController < ApplicationController
 
   private
     # seems we are duplicating this, but to avoid clash of users
-    def is_admin
-      user_id = session[:user_id]
-      redirect_to login_url, :notice => "Please login" unless user_id
-      logged_in_as = User.find(user_id)
-      @is_admin = ( logged_in_as.role == "Admin")
-    end
+ #   def is_admin
+ #     user_id = session[:user_id]
+ #     redirect_to login_url, :notice => "Please login" unless user_id
+ #     logged_in_as = User.find(user_id)
+ #     @is_admin = ( logged_in_as.role == "Admin")
+ #   end
 
     def check_admin
       redirect_to users_path unless @is_admin

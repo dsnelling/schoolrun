@@ -46,9 +46,9 @@ class DriversController < ApplicationController
   # POST /drivers
   # POST /drivers.json
   def create
-    @user = current_user
+    #@current_user = current_user
     event = Event.find(params[:event_id])
-    @driver = @user.drivers.build(params[:driver])
+    @driver = @current_user.drivers.build(params[:driver])
     @driver.event = event
 
     respond_to do |format|

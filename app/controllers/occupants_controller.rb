@@ -48,9 +48,9 @@ class OccupantsController < ApplicationController
   # POST /occupants
   # POST /occupants.json
   def create
-    @user = current_user
+    #@user = current_user
     event = Event.find(params[:event_id])
-    @occupant = @user.occupants.build(params[:occupant])
+    @occupant = @current_user.occupants.build(params[:occupant])
     @occupant.event = event
     
     respond_to do |format|

@@ -80,7 +80,7 @@ class UsersControllerTest < ActionController::TestCase
     session[:user_id] = admin.id
     put :update, :id => @user.to_param, :user => @input_attributes
     assert_equal 'User sam was successfully updated.', flash[:notice]
-    assert_redirected_to users_path
+    assert_redirected_to user_path(@user)
   end
 
   test "should destroy user" do

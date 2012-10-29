@@ -2,33 +2,44 @@
 %html
   %head
     %title Schoolrun: #{controller.controller_name}.#{controller.action_name}
-    = stylesheet_link_tag    "application", :media => "all"
+    = stylesheet_link_tag "application", :media => "all" unless mobile_device?
+    = stylesheet_link_tag "mobile" if mobile_device?
     = javascript_include_tag "application"
     = csrf_meta_tags
 
   %body
     #banner
-      = image_tag "heading.png", :height => 120
+      = image_tag "heading.png", :height => 120 unless mobile_device?
       = @page_title
       School Run
+      -#
+        %pre
+          = debug(session)
 
 
     #columns
       #side
         %ul
-          %li= link_to "Home", events_url
-          %li= link_to "My Details", user_url(@user) if @user
+          - if @is_admin
+            %li= link_to "Users", users_url
+          - else
+            %li= link_to "Events", events_url
+            %li= link_to "My Details", user_url(@current_user) if @current_user
           %li= link_to "Logout", logout_url
 
       #main
-        - if @user
+        - if @current_user
           #user-banner
-            #{@user.first_name} #{@user.surname} logged in
+            #{@current_user.first_name} #{@current_user.surname} logged in
 
         = yield
 
     #footer
       %hr/
+      -if mobile_device?
+        = link_to "Full Site", :mobile => 0
+      - else
+        = link_to "Mobile Site", :mobile => 1
       %p SchoolRun Copyright &copy; Duncan
 
 

@@ -1,4 +1,7 @@
 .schoolrun_form
+  - if flash[:alert]
+    %p#notice= flash[:alert]
+
 
   = form_for(@user) do |f|
     - if @user.errors.any?
@@ -32,6 +35,9 @@
           = f.label :password_confirmation, 'Confirm'
           = f.password_field :password_confirmation, :size => 40
         .field
+          =f.label :change_password, 'Change pw'
+          =f.check_box :change_password
+        .field
           = f.label :email
           = f.text_field :email
         .actions
@@ -39,14 +45,12 @@
     - else
       -# otherwise display only
       %dl
-        %dt Role
-        %dd= @user.role
         %dt Username
         %dd= @user.name
-        %dt First Name
-        %dd= @user.first_name
-        %dt Surname
-        %dd= @user.surname
+        %dt Name
+        %dd #{@user.first_name} #{@user.surname}
+        %dt Role
+        %dd= @user.role
       %fieldset
         %legend Update your details
         .field

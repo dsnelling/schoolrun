@@ -29,7 +29,7 @@
   %table
     =render :partial => "person",
       :collection => @event.occupants || "No students"
-  - if @user.role == "Student"
+  - if @current_user.role == "Student"
     = link_to "Request Pickup", new_occupant_path(:event_id => @event.id)
 
 
@@ -38,7 +38,7 @@
   %table
     =render :partial => "person",
       :collection => @event.drivers || "No drivers"
-  - if @user.role == "Parent"
+  - if @current_user.role == "Parent"
     = link_to "Nominate as Driver", new_driver_path(:event_id => @event.id)
 
 %br/

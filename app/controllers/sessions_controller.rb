@@ -9,6 +9,8 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       if user.role == "Admin"
         redirect_to admin_url
+      elsif user.change_password
+        redirect_to edit_user_url(user), :alert => "Please change your password"
       else
         redirect_to events_url
       end

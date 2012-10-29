@@ -1,0 +1,221 @@
+/* schoolrun_mobile.css.scss - styles common to many pages, but adopted for mobiles */
+
+/* =============  overall layout styles ================ */
+
+/* banner is across the top of each page */
+
+#banner {
+  background: #ccc;
+  height: 60px;
+  padding: 0px;
+  border-bottom: 2px solid;
+  font: small-caps 40px/40px "Times New Roman", serif;
+  color: #990000;
+  text-align: center;
+
+   img {
+    float: left;
+    display: none;
+   }
+
+}
+
+#notice {
+  color: #000;
+  border: 2px solid red;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: #f0f0f0;
+  font: bold smaller sans-serif;
+}
+
+#user-banner {
+     font-size: 10px;
+     font-style: italic;
+     text-align: left;
+     color: #990000;
+     vertical-align: bottom;
+}
+
+/* body as 2-column arrangement */
+
+#columns {
+  //background: #FFB2B2;
+}
+
+#main {
+  //margin-left: 1em;
+  padding: 0em 1em 0em 1em;
+  background: white;
+}
+#side {
+  //float: left;
+  padding: 0.1em 2em;
+  width: 90%;
+  background: #FFB2B2;
+}
+#side a {
+  color: #990000;
+}
+#side ul {
+  padding: 0;
+}
+#side li {
+  list-style: none;
+  display: inline;
+  padding: 0em 1em 0em 1em;
+}
+
+#footer {
+  font-size: 10px;
+  font-style: italic;
+  text-align: center;
+}
+
+.clear {
+  clear: both;
+}
+
+/* tables for listings on index pages */
+
+.list-table {
+  border-collapse: collapse;
+  }
+
+.list-header {
+  background-color: #ccc;
+  border: 1px solid silver ;
+  }
+.list-line-odd {
+  background-color: #fff;
+  }
+
+.list-line-even {
+  background-color: #eee;
+  }
+
+.list-cell {
+  border: 1px solid silver;
+  padding: 2px 4px 2px 4px;
+  
+  form {
+    display: inline;
+    vertical-align: center;
+
+    div {
+      display: inline;
+    }
+  }
+}
+
+.list-cell-number {
+  border: 1px solid silver;
+  text-align: right;
+  }
+
+.list-cell-total {
+  border: 1px solid silver;
+  text-align: right;
+  font-weight: bold;
+  }
+
+/* ====== forms ==== */
+.schoolrun_form {
+  fieldset {
+    background: #ffdfdf;
+
+    legend {
+      color: #ffd1d1;
+      background: #93256e;
+      font-family: sans-serif;
+      padding: 0.2em 1em;
+    }
+  }
+
+  dt {
+    width: 8em;
+    float: left;
+    text-align: right;
+    font-weight: bold;
+    display: block;
+  }
+  dt:after {
+    content: ":";
+  }
+
+  dd {
+    margin-left: 11em;
+  }
+
+  form {
+    label {
+      width: 8em;
+      float: left;
+      text-align: right;
+      padding-top: 0.2em;
+      margin-right: 0.1em;
+      display: block;
+    }
+
+    select, textarea, input {
+      margin-left: 1em;
+    }
+
+    .submit {
+      margin-left: 1em
+    }
+  }
+}
+
+/* ========= show pages ==========*/
+.schoolrun_show {
+
+  .show-title {
+    width: 8em;
+    float: left;
+    text-align: right;
+    padding-top: 0.2em;
+    margin-right: 0.1em;
+    display: block;
+    font-weight: bold;
+  }
+
+  .show-data {
+    margin-left: 8.5em;
+    padding-top: 0.4em;
+  }
+}
+.schoolrun-list {
+  //border: 1px solid red;
+  padding: 0 0 1.5em 1em;
+  margin-bottom: 1em;
+
+  dt {
+    font-weight: bold;
+    float: left;
+    //float: clear;
+    margin: 0em 2em 0.2em 0em;
+    width: 8em;
+  }
+  dt:after {
+    content: ":";
+  }
+
+  dd {
+    margin: 0em 0em 0.2em 8.2em;
+    padding: 0 0 0 1em;
+  }
+}
+/* ==== general styles - moved from scaffold css ===== */
+a {
+  color: #660066;
+  &:visited {
+    color: #66066;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+
