@@ -1,0 +1,19 @@
+%h1 Import complete
+%h2 with errors ....
+
+//= debug(params)
+
+%p #{@rows_read} read, #{@rows_imported} saved!!
+
+- if @errs.any?
+  #error_explanation
+    %h2
+      = pluralize(@errs.count, "error")
+      prohibited all events from being uploaded:
+
+    %ul
+      - @errs.each do |msg|
+        %li= msg
+
+= link_to "List Events", events_url
+

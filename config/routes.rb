@@ -1,7 +1,6 @@
 Schoolrun::Application.routes.draw do
 
   root to: 'events#index'
-
   get "admin" => "admin#index"
 
   controller :sessions do
@@ -15,6 +14,6 @@ Schoolrun::Application.routes.draw do
   resources :events
   resources :occupants, :except => :index
   resources :drivers, :except => :index
-
+  resource :import, :only => [:new, :create, :show]
 
 end

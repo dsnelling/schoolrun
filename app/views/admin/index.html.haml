@@ -1,18 +1,11 @@
-%h1 Welcome Admin
-
-%h2 School run system
-%h2 School: LEH
-
-%h3 Admin Menu
+%h1 Admin Menu
 
 %ul
   %li= link_to "User Maintainence", users_path
+  %li= link_to "Events Bulk Upload", new_import_path
+  %li= link_to "Logout", logout_path
 
 
-%p driverless events: #{@open_events }
-%p events with driver: #{@closed_events }
-
-%p [end]
 
 
 

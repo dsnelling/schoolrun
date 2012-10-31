@@ -2,7 +2,7 @@
 %html
   %head
     %title Schoolrun: #{controller.controller_name}.#{controller.action_name}
-    = stylesheet_link_tag "application", :media => "all" unless mobile_device?
+    = stylesheet_link_tag "application", :media => "all"
     = stylesheet_link_tag "mobile" if mobile_device?
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -23,13 +23,17 @@
       #side
         %ul
           - if @is_admin
+            %li= link_to "Admin", admin_url
             %li= link_to "Users", users_url
+            %li= link_to "Events", events_url
           - else
             %li= link_to "Events", events_url
             %li= link_to "My Details", user_url(@current_user) if @current_user
           %li= link_to "Logout", logout_url
 
       #main
+        - if notice
+          %p#notice= notice
         - if @current_user
           #user-banner
             #{@current_user.first_name} #{@current_user.surname} logged in

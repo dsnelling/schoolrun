@@ -33,7 +33,7 @@ end
 
 gem 'jquery-rails'
 gem 'execjs'
-#gem 'will_paginate'
+gem 'will_paginate', '~> 3.0.0'
 gem 'haml', '~> 3.1.7'
 
 # To use ActiveModel has_secure_password
