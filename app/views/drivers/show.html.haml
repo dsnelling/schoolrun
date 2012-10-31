@@ -18,8 +18,10 @@
   = @driver.event.title
 %p
   %b Date & Time
-  #{@driver.event.event_date} at 
-  #{@driver.event.event_time.strftime("%H:%M")}
+  #{@driver.event.event_date} 
+  -if @driver.event.event_time
+    at #{@driver.event.event_time.strftime("%H:%M")}
+  \::
 %p
   %b Remarks:
   = @driver.remarks

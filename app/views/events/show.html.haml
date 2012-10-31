@@ -17,7 +17,11 @@
   %dt Event date
   %dd= @event.event_date
   %dt Event time
-  %dd= @event.event_time.strftime("%H:%M")
+  %dd
+    - if @event.event_time
+      = @event.event_time.strftime("%H:%M")
+    - else
+      %span.annotation unknown time
   %dt Location
   %dd= @event.location
   %dt Status

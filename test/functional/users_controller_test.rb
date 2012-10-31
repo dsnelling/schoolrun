@@ -22,7 +22,7 @@ class UsersControllerTest < ActionController::TestCase
 
   end
 
-  test "should be admin" do
+  test "should be admin" doheroku logs
     admin =  User.create(@ad)
     session[:user_id] = admin.id
     a = User.find(session[:user_id])

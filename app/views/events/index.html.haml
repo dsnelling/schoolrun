@@ -29,7 +29,8 @@
         %td.list-cell
           = event.event_date
           %br/
-          = event.event_time.strftime("%H:%M")
+          = event.event_time.strftime("%H:%M") if event.event_time
+          &nbsp;
         %td.list-cell
           = render(event.occupants)
         %td.list-cell

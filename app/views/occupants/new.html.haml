@@ -1,7 +1,9 @@
 %h2 Join journey
 %p
-  #{@event.event_date} at
-  #{@event.event_time.strftime("%H:%M")} ::
+  #{@event.event_date}
+  -if @event.event_time
+    at #{@event.event_time.strftime("%H:%M")}
+  \::
   %b= @event.title
 .schoolrun_form
   %fieldset

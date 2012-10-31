@@ -18,7 +18,10 @@
   %dt Event
   %dd= @occupant.event.title
   %dt Date & Time
-  %dd #{@occupant.event.event_date} at #{@occupant.event.event_time.strftime("%H:%M")}
+  %dd
+    #{@occupant.event.event_date}
+    - if @occupant.event.event_time
+      at #{@occupant.event.event_time.strftime("%H:%M")}
   %dt Remarks
   %dd
     = @occupant.remarks
