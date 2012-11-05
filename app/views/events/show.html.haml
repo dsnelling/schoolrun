@@ -15,7 +15,7 @@
   %dt To/From
   %dd= @event.to_from
   %dt Event date
-  %dd= @event.event_date
+  %dd= @event.event_date.strftime("%a %d-%m-%Y")
   %dt Event time
   %dd
     - if @event.event_time
@@ -24,8 +24,8 @@
       %span.annotation unknown time
   %dt Location
   %dd= @event.location
-  %dt Status
-  %dd= @event.status
+  -#%dt Status
+    %dd= @event.status
 
 -#.clear
 %h3 Students:

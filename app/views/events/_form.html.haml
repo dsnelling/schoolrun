@@ -18,7 +18,8 @@
       %td= f.text_area :description, :rows => 4
     %tr.field
       %td= f.label :event_date
-      %td= f.date_select :event_date
+      -#%td= f.date_select :event_date
+      %td= f.text_field :event_date, :class => 'datepicker'
     %tr.field
       %td= f.label :event_time
       %td= f.time_select :event_time

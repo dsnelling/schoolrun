@@ -14,20 +14,21 @@
 .event-table
   %table.list-table
     %tr.list-header
+      %th.list-cell Date
       %th.list-cell Title
       %th.list-cell Description
       %th.list-cell Location
-      %th.list-cell Date/Time
       %th.list-cell Occupants
       %th.list-cell Drivers
 
     - @events.each do |event|
       %tr{:valign => "top", :class => cycle('list-line-odd', 'list-line-even')}
+        %td.list-cell
+          = event.event_date.strftime("%a\n%e-%m-%Y")
         %td.list-cell= link_to event.title, event_path(event)
         %td.list-cell= truncate(event.description,:length => 30)
-        %td.list-cell #{event.to_from} #{event.location}
         %td.list-cell
-          = event.event_date
+          <b>#{event.to_from}</b> #{event.location}
           %br/
           = event.event_time.strftime("%H:%M") if event.event_time
           &nbsp;
