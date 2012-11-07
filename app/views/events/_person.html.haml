@@ -15,9 +15,9 @@
   %td.list-cell= person.remarks
   %td.list-cell
     - if @current_user.id == person.user.id && person.user.role == "Student"
-      = button_to "Cry-Off", occupant_path(person.id), :method => :delete
+      = button_to "Cancel", occupant_path(person.id), :method => :delete
     - elsif @current_user.id == person.user.id && person.user.role == "Parent"
-      = button_to "Cry-Off", driver_path(person.id), :method => :delete
+      = button_to "Cancel", driver_path(person.id), :method => :delete
     &nbsp;
 .stuff
 

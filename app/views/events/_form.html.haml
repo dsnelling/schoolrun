@@ -22,7 +22,7 @@
       %td= f.text_field :event_date, :class => 'datepicker'
     %tr.field
       %td= f.label :event_time
-      %td= f.time_select :event_time
+      %td= f.time_select :event_time, {:minute_step => 15}
     %tr.field
       %td= f.label :to_from
       %td= f.select :to_from, Event::TO_FROM_TYPES

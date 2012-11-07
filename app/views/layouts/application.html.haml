@@ -10,7 +10,7 @@
       %meta{'name' => 'viewport', :content => "width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes"}/ 
 
   %body
-    #banner
+    #banner.container
       = image_tag "heading.png", :height => 120 unless mobile_device?
       = @page_title
       School Run
@@ -19,7 +19,7 @@
           = debug(session)
 
 
-    #columns
+    #columns.container
       #side
         %ul
           - if @is_admin
@@ -29,6 +29,7 @@
           - else
             %li= link_to "Events", events_url
             %li= link_to "My Details", user_url(@current_user) if @current_user
+            %li= link_to "About/Help", about_url
           %li= link_to "Logout", logout_url
 
       #main
@@ -41,11 +42,10 @@
         = yield
 
     #footer
-      %hr/
       -if mobile_device?
         = link_to "Full Site", :mobile => 0
       - else
         = link_to "Mobile Site", :mobile => 1
-      %p SchoolRun Copyright &copy; Duncan
+      %p SchoolRun Copyright &copy;2012 Duncan Snelling
 
 

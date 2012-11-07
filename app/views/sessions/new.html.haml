@@ -5,15 +5,15 @@
   = form_tag do 
     %fieldset
       %legend Please Log In
-      %div
+      %div.login
         = label_tag :name, 'Name:'
         = text_field_tag :name, params[:name]
 
-      %div
+      %div.login
         = label_tag :password, 'Password:'
         = password_field_tag :password, params[:password]
 
-      %div
+      %div.login
         = submit_tag "Login"
         
 
