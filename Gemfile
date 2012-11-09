@@ -33,6 +33,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'jquerytools-rails', git: 'git://github.com/wafcio/jquerytools-rails.git'
 gem 'execjs'
 gem 'will_paginate', '~> 3.0.0'
 gem 'haml', '~> 3.1.7'

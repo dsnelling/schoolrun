@@ -1,8 +1,5 @@
-.driver
-  = driver.user.first_name
-  =driver.user.surname
-  %span.annotation  
-    = "R" if driver.remarks.to_s.length > 0
-    = "T" if driver.status == "Tentative"
+.driver{:class => driver.remark? && "ttip", :title => driver.remarks }
+  #{driver.user.first_name} #{driver.user.surname}
+  %span.annotation= "T" if driver.status == "Tentative"
 
 

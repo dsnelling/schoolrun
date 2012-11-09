@@ -1,8 +1,6 @@
-.occupant
+.occupant{:class => occupant.remark? && "ttip", :title => occupant.remarks }
   = occupant.user.first_name
-  =occupant.user.surname
-  %span.annotation
-    = "R" if occupant.remarks.to_s.length > 0
-    = "T" if occupant.status == "Tentative"
+  = occupant.user.surname
+  %span.annotation= "T" if occupant.status == "Tentative"
 
 

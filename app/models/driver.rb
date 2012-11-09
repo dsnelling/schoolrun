@@ -6,4 +6,8 @@ class Driver < ActiveRecord::Base
 
   STATUS_TYPES = ["","Tentative","Confirmed"]
 
+  def remark?
+    remarks.to_s.length > 0
+  end
+
 end

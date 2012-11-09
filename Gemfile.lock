@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/wafcio/jquerytools-rails.git
+  revision: b48b088accac6ccc21e731cb141f0779b255d4f6
+  specs:
+    jquerytools-rails (1.2.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -123,6 +129,7 @@ DEPENDENCIES
   haml (~> 3.1.7)
   jquery-rails
   jquery-ui-rails
+  jquerytools-rails!
   mysql2 (~> 0.3.11)
   pg
   rails (= 3.2.8)
