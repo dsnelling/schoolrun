@@ -35,4 +35,13 @@ class EventTest < ActiveSupport::TestCase
     event.to_from = "From"
     assert event.valid?
   end
+
+  test "Events can be purged" do
+    # fixtures are dates all in the future
+    event = Event.new(@input_attributes)
+    event.event_date = 10.days.ago
+    event.save
+    assert_equal 1, Event.purge
+  end
+
 end

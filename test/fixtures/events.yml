@@ -2,9 +2,9 @@
 
 one:
   title: MyString
-  description: MyText
+  description: Event in the future
   to_from: MyString
-  event_date: 2012-10-12
+  event_date: <%= Time.now + 2.days %>
   event_time: 2012-10-12 21:15:31
   location: MyString
   status: MyString
@@ -13,14 +13,14 @@ two:
   title: MyString
   description: MyText
   to_from: MyString
-  event_date: 2012-10-12
+  event_date: <%= Time.now + 5.days %>
   event_time: 2012-10-12 21:15:31
   location: MyString
   status: MyString
 
 leh:
   description: "afterschool netball pickup, St Pauls"
-  event_date: "2012-10-10"
+  event_date: <%= Time.now + 12.days %>
   event_time: "18:00"
   location: "LEH"
   status: "OK"

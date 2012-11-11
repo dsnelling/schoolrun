@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     # get all the event records since yesterday, order by event date
-    @events = Event.where("event_date >= ?",(Time.now.midnight - 1.day))
+    @events = Event.where("event_date >= ?",(Time.now.beginning_of_day))
       .paginate( :page => params[:page], :per_page => 20).order(
         "event_date, event_time")
 
@@ -85,6 +85,11 @@ class EventsController < ApplicationController
       format.html { redirect_to events_url }
       format.json { head :no_content }
     end
+  end
+
+  def purge
+    purge_count = Event.purge
+    redirect_to events_url, :notice => "#{purge_count} old events purged"
   end
 
 

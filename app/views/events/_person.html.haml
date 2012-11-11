@@ -18,7 +18,9 @@
       = button_to "Cry-off", occupant_path(person.id), :method => :delete
     - elsif (@current_user.id == person.user.id || @is_admin) && person.user.role == "Parent"
       = button_to "Rescind", driver_path(person.id), :method => :delete
-    &nbsp;
+    -elsif (@current_user.id != person.user.id) && person.user.role == "Parent"
+      = link_to "Takeover", edit_driver_path(person.id)
+      &nbsp;
 .stuff
 
 

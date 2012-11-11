@@ -1,3 +1,19 @@
 // Place all the styles related to the admin controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.about {
+  p, ul, ol {
+    //font-size: 11px;
+    //line-height: 14px;
+  }
+
+  dt {
+    text-decoration: underline;
+    font-style: italic;
+    }
+  dt:after {
+    content: ":";
+  }
+}
+

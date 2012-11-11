@@ -42,7 +42,11 @@
     =render :partial => "person",
       :collection => @event.drivers || "No drivers"
   - if @current_user.role == "Parent"
-    = link_to "Nominate as Driver", new_driver_path(:event_id => @event.id)
+    - if @event.drivers.exists?
+      = link_to "Nominate as Additional Driver",
+        new_driver_path(:event_id => @event.id)
+    - else
+      = link_to "Nominate as Driver", new_driver_path(:event_id => @event.id)
 
 %br/
 %br/
@@ -50,4 +54,4 @@
 |
 = link_to 'Destroy Event', event_path(@event), method: :delete, data: { confirm: 'Are you sure?' }
 |
-= link_to 'Back', events_path
+= link_to 'Back to Events Listing', events_path

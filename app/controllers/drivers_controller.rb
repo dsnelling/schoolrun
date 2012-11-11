@@ -46,14 +46,13 @@ class DriversController < ApplicationController
   # POST /drivers
   # POST /drivers.json
   def create
-    #@current_user = current_user
     event = Event.find(params[:event_id])
     @driver = @current_user.drivers.build(params[:driver])
     @driver.event = event
 
     respond_to do |format|
       if @driver.save
-        format.html { redirect_to events_url, notice: 'Driver was successfully created.' }
+        format.html { redirect_to events_url, notice: 'Driver was successfully allocated.' }
         format.json { render json: @driver, status: :created, location: @driver }
       else
         format.html { render action: "new" }
@@ -66,6 +65,7 @@ class DriversController < ApplicationController
   # PUT /drivers/1.json
   def update
     @driver = Driver.find(params[:id])
+    @driver.user = @current_user
 
     respond_to do |format|
       if @driver.update_attributes(params[:driver])
@@ -89,4 +89,5 @@ class DriversController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end

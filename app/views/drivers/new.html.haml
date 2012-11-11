@@ -1,10 +1,12 @@
 %h2 Nominate as Driver for:
-%p
-  #{@event.event_date}
-  -if @event.event_time
-    at #{@event.event_time.strftime("%H:%M")}
-  \::
-  %b= @event.title 
+%dl
+  %dd
+    #{@event.event_date.strftime("%a %d-%m-%y")}
+    -if @event.event_time
+      at #{@event.event_time.strftime("%H:%M")}
+  %dd
+    %b= @event.title 
+
 
 .schoolrun_form
   %fieldset

@@ -1,4 +1,7 @@
-/* schoolrun_mobile.css.scss - styles common to many pages, but adopted for mobiles */
+/* 
+ * schoolrun_mobile.css.scss - styles common to many pages, but
+ * adopted for mobiles
+ */
 
 /* =============  overall layout styles ================ */
 
@@ -212,6 +215,32 @@ body {
     padding: 0 0 0 1em;
   }
 }
+
+
+.login {
+  //margin: 1.5em;
+}
+
+.about {
+  p, ul, ol {
+    //font-size: 11px;
+    //line-height: 14px;
+  }
+}
+
+/* ==== jquerytools styles ======= */
+
+.tooltip {
+    display: none;
+    background-color: #FFCFCF;
+    border: 1px solid #cc9;
+    font-size: 12px;
+    height: 40px;
+    padding: 5px 15px 5px 5px;
+    color: #222;
+  }
+
+
 /* ==== general styles - moved from scaffold css ===== */
 a {
   color: #660066;
