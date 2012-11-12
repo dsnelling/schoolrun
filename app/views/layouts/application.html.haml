@@ -33,9 +33,10 @@
             %li= link_to "About/Help", about_url
             %li.new= link_to "News", news_url
           %li= link_to "Logout", logout_url
-        %ul
-          %li= link_to "LEH Calendar",
-            "http://www.lehs.org.uk/calendar/index.php"
+        - if !mobile_device?
+          %ul
+            %li= link_to "LEH Calendar",
+              "http://www.lehs.org.uk/calendar/index.php"
 
       #main
         - if notice

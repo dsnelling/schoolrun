@@ -15,7 +15,7 @@ body {
 
 #banner {
   background: #ccc;
-  height: 60px;
+  height: 40px;
   padding: 0px;
   border-bottom: 2px solid;
   font: small-caps 40px/40px "Times New Roman", serif;
@@ -53,32 +53,37 @@ body {
 }
 
 #main {
-  //margin-left: 1em;
-  padding: 0em 1em 0em 1em;
+  padding: 0em;
   background: white;
 }
+
 #side {
-  //float: left;
   padding: 0.1em 2em;
   //width: 90%;
   background: #FFB2B2;
-}
-#side a {
-  color: #990000;
-}
-#side ul {
-  padding: 0;
-}
-#side li {
-  list-style: none;
-  display: inline;
-  padding: 0em 1em 0em 1em;
+
+  a {
+    color: #990000;
+  }
+  ul {
+    padding: 0;
+    margin: 3px;
+  }
+  li {
+    list-style: none;
+    display: inline;
+    padding: 0em 1em 0em 1em;
+  }
 }
 
 #footer {
   font-size: 10px;
   font-style: italic;
   text-align: center;
+
+  p {
+    font-size: 10px;
+  }
 }
 
 .clear {

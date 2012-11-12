@@ -12,7 +12,7 @@ $ -> $('.datepicker').datepicker();
 
 # ---tooltip - from jquery-tools
 $ -> $('.ttip').tooltip({
-  opacity: 0.7,
+  opacity: 1.0,
   position: 'bottom center',
   offset: [0,15],
   effect: 'fade'
