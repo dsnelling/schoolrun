@@ -1,0 +1,15 @@
+# config/config.yml
+#
+# application specific settings
+# see line of code in config/initializers.rb
+#
+defaults: &defaults
+  static_uri: http://www.dcafsnelling.co.uk.s3-website-us-east-1.amazonaws.com/schoolrun-static.html
+
+development:
+  <<: *defaults
+
+production:
+  <<: *defaults
+
+
