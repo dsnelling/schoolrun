@@ -58,5 +58,16 @@ module Schoolrun
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # ActionMailer setup - to send to AWS
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :address => "email-smtp.us-east-1.amazonaws.com",
+      :user_name => ENV['SES_SMTP_USERNAME'],
+      :password => ENV['SES_SMTP_PASSWORD'],
+      :authentication => :login,
+      :enable_starttls_auto => true
+    }
+
   end
 end

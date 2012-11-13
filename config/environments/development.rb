@@ -34,4 +34,9 @@ Schoolrun::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # don't actually deliver emails in development
+  #config.action_mailer.perfom_deliveries = false
+  config.action_mailer.delivery_method = :test
+
 end
