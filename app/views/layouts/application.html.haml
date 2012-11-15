@@ -31,7 +31,7 @@
             %li= link_to "Events", events_url
             %li= link_to "My Details", user_url(@current_user) if @current_user
             %li= link_to "About/Help", about_url
-            %li.new= link_to "News", news_url
+            %li= link_to "News", news_url
           %li= link_to "Logout", logout_url
         - if !mobile_device?
           %ul

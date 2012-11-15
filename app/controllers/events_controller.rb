@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_filter :current_user
+  caches_action :index, :layout => false
 
   # GET /events
   # GET /events.json
@@ -57,6 +58,7 @@ class EventsController < ApplicationController
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
+    expire_action :action => "index"
   end
 
   # PUT /events/1
@@ -73,6 +75,7 @@ class EventsController < ApplicationController
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
+    expire_action :action => "index"
   end
 
   # DELETE /events/1

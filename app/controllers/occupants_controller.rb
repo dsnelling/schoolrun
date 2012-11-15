@@ -57,6 +57,7 @@ class OccupantsController < ApplicationController
       if @occupant.save
         format.html { redirect_to events_url, notice: 'Occupant was successfully created.' }
         format.json { render json: @occupant, status: :created, location: @occupant }
+        expire_action :controller => "events", :action => "index"
       else
         format.html { render action: "new" }
         format.json { render json: @occupant.errors, status: :unprocessable_entity }
@@ -73,6 +74,7 @@ class OccupantsController < ApplicationController
       if @occupant.update_attributes(params[:occupant])
         format.html { redirect_to @occupant, notice: 'Occupant was successfully updated.' }
         format.json { head :no_content }
+        expire_action :controller => "events", :action => "index"
       else
         format.html { render action: "edit" }
         format.json { render json: @occupant.errors, status: :unprocessable_entity }
@@ -85,6 +87,7 @@ class OccupantsController < ApplicationController
   def destroy
     @occupant = Occupant.find(params[:id])
     @occupant.destroy
+    expire_action :controller => "events", :action => "index"
 
     respond_to do |format|
       format.html { redirect_to events_url }

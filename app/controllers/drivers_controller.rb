@@ -54,6 +54,7 @@ class DriversController < ApplicationController
       if @driver.save
         format.html { redirect_to events_url, notice: 'Driver was successfully allocated.' }
         format.json { render json: @driver, status: :created, location: @driver }
+        expire_action :controller => "events", :action => "index"
       else
         format.html { render action: "new" }
         format.json { render json: @driver.errors, status: :unprocessable_entity }
@@ -71,11 +72,12 @@ class DriversController < ApplicationController
       if @driver.update_attributes(params[:driver])
         format.html { redirect_to @driver, notice: 'Driver was successfully updated.' }
         format.json { head :no_content }
-      else
+              else
         format.html { render action: "edit" }
         format.json { render json: @driver.errors, status: :unprocessable_entity }
       end
     end
+    expire_action :controller => "events", :action => "index"
   end
 
   # DELETE /drivers/1
@@ -83,7 +85,7 @@ class DriversController < ApplicationController
   def destroy
     @driver = Driver.find(params[:id])
     @driver.destroy
-
+    expire_action :controller => "events", :action => "index"
     respond_to do |format|
       format.html { redirect_to events_url }
       format.json { head :no_content }
