@@ -15,6 +15,7 @@ Schoolrun::Application.routes.draw do
     get "logout" => :destroy
   end
 
+  resources :password_resets
   resources :users
 
   resources :events do

@@ -1,0 +1,28 @@
+.user-banner &nbsp;
+
+%h1 Reset Password
+
+.schoolrun_form
+
+  - if flash[:alert]
+    %p.notice= flash[:alert]
+
+  = form_for @user, :url => password_reset_path(params[:id]) do |f|
+    - if @user.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@user.errors.count, "error")
+          prohibited this user from being saved:
+        %ul
+          - @user.errors.full_messages.each do |message|
+            %li= message
+    %fieldset
+      %legend Enter new password:
+      .field
+        = f.label :password, "New Password"
+        = f.password_field :password, :size => 40
+      .field
+        = f.label :password_confirmation, "Confirm"
+        = f.password_field :password_confirmation, :size => 40
+
+      .actions= f.submit "Update Password"

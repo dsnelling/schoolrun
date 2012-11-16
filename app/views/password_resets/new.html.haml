@@ -1,0 +1,12 @@
+.user-banner &nbsp;
+%h1 Reset Password
+
+.schoolrun_form
+  = form_tag password_resets_path, :method => :post do
+    %fieldset
+      %legend Enter login name
+      .field
+        = label_tag :name
+        = text_field_tag :name, params[:name]
+      .actions= submit_tag "Reset Password"
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121029105654) do
+ActiveRecord::Schema.define(:version => 20121116142619) do
 
   create_table "drivers", :force => true do |t|
     t.integer  "event_id"
@@ -52,9 +52,11 @@ ActiveRecord::Schema.define(:version => 20121029105654) do
     t.string   "role"
     t.string   "first_name"
     t.string   "surname"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
     t.boolean  "change_password"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
 end

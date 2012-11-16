@@ -164,6 +164,8 @@
   }
 
   form {
+    padding-top: 1em;
+
     label {
       width: 8em;
       float: left;
@@ -173,7 +175,7 @@
       display: block;
     }
 
-    select, textarea, input {
+    select, textarea, input, a {
       margin-left: 3em;
     }
 
