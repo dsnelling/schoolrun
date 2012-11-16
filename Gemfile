@@ -32,7 +32,10 @@ group :assets do
   gem 'jquery-ui-rails'
 end
 
+# stuff to support Heroku deployment/performance
 gem 'dalli'  # for memcached
+gen 'newrelic_rpm'
+
 gem 'jquery-rails'
 gem 'jquerytools-rails', git: 'git://github.com/wafcio/jquerytools-rails.git'
 gem 'execjs'
