@@ -5,11 +5,18 @@
 #
 defaults: &defaults
   static_uri: http://www.dcafsnelling.co.uk.s3-website-us-east-1.amazonaws.com/schoolrun-static.html
+  ses_smtp_host: 
 
 development:
   <<: *defaults
 
 production:
   <<: *defaults
+  host_uri: http://schoolrun.herkuapp.com/
+
+test:
+  <<: *defaults
+  host_uri: http://localhost:3000/
+
 
 

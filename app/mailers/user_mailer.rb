@@ -1,17 +1,6 @@
 class UserMailer < ActionMailer::Base
   default from: "schoolrun@dcafsnelling.co.uk"
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.user_mailer.reset_password.subject
-  #
-  def reset_password
-    @greeting = "Hi - resetting password"
-
-    mail to: "success@simulator.amazonses.com", subject: "Reset Password"
-  end
-
   def password_reset(user)
     @user = user
     mail :to => user.email, :subject => "Password Reset"

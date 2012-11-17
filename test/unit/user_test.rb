@@ -71,6 +71,11 @@ class UserTest < ActiveSupport::TestCase
     assert user.valid?
   end
 
+  test "can send password reset" do
+    user = User.new(@input_attributes)
+    mail = user.send_password_reset
+    assert_match /To reset your password/, mail.body.to_s
+  end
 
 # test "the truth" do
   #   assert true

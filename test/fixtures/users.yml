@@ -23,10 +23,11 @@ bill:
   name: bill
   hashed_password: <%= Digest::SHA2.hexdigest("verysecret") %>
   salt: SALT
-  email: bill@here
+  email: bill@here.com
   role: Parent
   first_name: Bill
   surname: Smith
+  password_reset_token: wYj6mtPQUFBH6JE4O6KT8w
 
 william:
   name: william
