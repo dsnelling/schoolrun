@@ -1,11 +1,16 @@
 require 'digest/sha2'
 
+# User class - one record per person. Authorisation is fairly standard stuff,
+# from "Agile Wed Development with Rails" 4th edition
+#
+
 class User < ActiveRecord::Base
   has_many :occupants
   has_many :drivers
   #has_many :events, :through => :occupants
+
   attr_accessible :email, :first_name, :password, :name, :role,
-    :password_confirmation, :surname, :change_password
+    :password_confirmation, :surname, :change_password, :facebook_id
   attr_accessor :password_confirmation
   attr_reader :password
 
@@ -19,6 +24,10 @@ class User < ActiveRecord::Base
     :with => /^[0-9A-Za-z\._\-]+@[0-9A-Za-z_\.\-]+/,
     :message => "address invalid"
     }
+
+  before_save do |user|
+    user.gravatar_hash = Digest::MD5.hexdigest(user.email.to_s.downcase)
+  end
 
   def User.authenticate(name, password)
     if user = find_by_name(name)
@@ -40,6 +49,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  # refer railscast #274
   def send_password_reset
     self.password_reset_token = SecureRandom.urlsafe_base64
     self.password_reset_sent_at = Time.zone.now

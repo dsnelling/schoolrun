@@ -1,4 +1,5 @@
 .occupant{:class => occupant.remark? && "ttip", :title => occupant.remarks }
+  = avatar(occupant.user)
   = occupant.user.first_name
   = occupant.user.surname
   %span.annotation= "T" if occupant.status == "Tentative"

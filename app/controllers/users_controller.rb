@@ -70,7 +70,8 @@ class UsersController < ApplicationController
     else
       a = { :password => params[:user][:password],
         :password_confirmation => params[:user][:password_confirmation],
-        :email => params[:user][:email], :change_password => false
+        :email => params[:user][:email], :facebook_id => 
+        params[:user][:facebook_id], :change_password => false
         }
     end
 

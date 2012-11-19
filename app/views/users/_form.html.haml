@@ -40,6 +40,9 @@
         .field
           = f.label :email
           = f.text_field :email
+        .field
+          = f.label :facebook_id, "Facebook ID"
+          = f.text_field :facebook_id
         .actions
           = f.submit
     - else
@@ -62,6 +65,11 @@
         .field
           = f.label :email
           = f.text_field :email
+        .field
+          = f.label :facebook_id, "Facebook ID"
+          = f.text_field :facebook_id
         .actions
           = f.submit
+
+%p Note: Facebook ID allows profile picture to be picked up from Facebook
 

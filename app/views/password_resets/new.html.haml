@@ -2,6 +2,10 @@
 %h1 Reset Password
 
 .schoolrun_form
+  %p
+    To request a password reset, under your username and request Reset Password.
+    You should receive an email with a link; click on the link and enter a new
+    password. Note that the link will time-out after 2 hours.
   = form_tag password_resets_path, :method => :post do
     %fieldset
       %legend Enter login name

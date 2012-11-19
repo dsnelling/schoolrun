@@ -2,6 +2,8 @@
 -# "occupant" or "driver" passed as parameter
 %tr
   %td.list-cell
+    = avatar(person.user)
+  %td.list-cell
     -if @current_user.id == person.user.id && person.user.role == "Student"
       = link_to "#{person.user.first_name} #{person.user.surname}",
         edit_occupant_path(person)

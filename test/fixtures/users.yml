@@ -28,6 +28,7 @@ bill:
   first_name: Bill
   surname: Smith
   password_reset_token: wYj6mtPQUFBH6JE4O6KT8w
+  password_reset_sent_at: <%= 1.hour.ago %>
 
 william:
   name: william
@@ -37,6 +38,8 @@ william:
   role: Parent
   first_name: William
   surname: Jones
+  password_reset_token: wYj6mtPQUihairy4O6KT8w
+  password_reset_sent_at: <%= 3.hours.ago %>
 
 admin:
   name: fred

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121116142619) do
+ActiveRecord::Schema.define(:version => 20121119134341) do
 
   create_table "drivers", :force => true do |t|
     t.integer  "event_id"
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(:version => 20121116142619) do
     t.boolean  "change_password"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.string   "facebook_id"
+    t.string   "gravatar_hash"
   end
 
 end

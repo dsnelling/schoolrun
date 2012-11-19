@@ -1,6 +1,6 @@
 %h1 Show User
-- if notice
-  %p#notice= notice
+
+%p= avatar(@user)
 
 %dl.schoolrun-list
   %dt Name
@@ -13,6 +13,10 @@
   %dd= @user.email
   %dt Role
   %dd= @user.role
+  %dt Facebook 
+  %dd
+    = @user.facebook_id
+    &nbsp;
   %dt Change Password
   %dd= @user.change_password
 

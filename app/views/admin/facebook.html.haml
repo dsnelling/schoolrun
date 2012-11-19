@@ -1,0 +1,9 @@
+%h2 Facebook pictures
+
+%table
+  - @fb.each do |f|
+    %tr
+      %td= f
+      %td= image_tag "http://graph.facebook.com/#{f}/picture?type=square",
+        :alt => ""
+      %td= image_tag "http://en.gravatar.com/avatar/#{Digest::MD5.hexdigest(f)}?d=wavatar&s=50"

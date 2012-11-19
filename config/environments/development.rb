@@ -37,11 +37,7 @@ Schoolrun::Application.configure do
   config.assets.debug = true
 
   # don't actually deliver emails in development
-  #config.action_mailer.perfom_deliveries = false
-  #--config.action_mailer.delivery_method = :test
-  config.action_mailer.default_url_options = {
-    :host => "localhost:3000"
-  }
-
-
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :test
+  config.action_mailer.default_url_options = { :host => "localhost:3000" }
 end

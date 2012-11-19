@@ -4,6 +4,7 @@ class UserMailer < ActionMailer::Base
   def password_reset(user)
     @user = user
     mail :to => user.email, :subject => "Password Reset"
+    logger.debug "user mail sent to #{user.email} - Password Reset"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -17,4 +18,11 @@ class UserMailer < ActionMailer::Base
     mail to: "schoolrun@dcafsnelling.co.uk", subject: "Schoolrun - Driver Takeover"
 
   end
+
+  def test_email
+    # test email
+    mail :to => "schoolrun@dcafsnelling.co.uk", :subject => "Test email"
+    logger.debug "test email sent to schoolrun@dcafsnelling.co.uk....."
+  end
+    
 end
