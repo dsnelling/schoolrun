@@ -2,6 +2,11 @@
   - if flash[:alert]
     %p#notice= flash[:alert]
 
+  %p
+    Note: Facebook ID will pick up your profile picture Facebook.
+    Otherwise, an avatar, based on your email will be retreived. Refer to 
+    = link_to "www.gravatar.com", "http://en.gravatar.com/"
+    (yes, its a bit geeky!)
 
   = form_for(@user) do |f|
     - if @user.errors.any?
@@ -71,5 +76,4 @@
         .actions
           = f.submit
 
-%p Note: Facebook ID allows profile picture to be picked up from Facebook
 
