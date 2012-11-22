@@ -103,6 +103,7 @@
 
 .list-table {
   border-collapse: collapse;
+  margin-bottom: 15px;
   }
 
 .list-header {
@@ -125,10 +126,13 @@
     display: inline;
     vertical-align: center;
 
-    div {
-      display: inline;
+  div {
+    display: inline;
     }
   }
+}
+.heavy {
+  font-weight: bold;
 }
 
 .list-cell-number {

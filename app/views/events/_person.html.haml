@@ -4,6 +4,8 @@
 -# combinations. I know putting this logic in a view is not elegant, but hey... 
 
 %tr
+  %td.list-cell.heavy
+    = person.user.role
   %td.list-cell
     = avatar(person.user)
   %td.list-cell
@@ -26,6 +28,7 @@
 
   %td.list-cell= person.status
   %td.list-cell= person.remarks
+  %td.list-cell= person.updated_at.strftime("%d-%b %H:%M")
   %td.list-cell
     -# children can cry-off themselves
     - if (@current_user.id == person.user.id || @is_admin ) && person.user.role == "Student"
@@ -43,6 +46,5 @@
     -elsif (@current_user.id != person.user.id) && @current_user.role == "Parent" && person.user.role == "Parent"
       = link_to "Takeover", edit_driver_path(person.id)
       &nbsp;
-.stuff
 
 

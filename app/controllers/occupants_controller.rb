@@ -44,8 +44,8 @@ class OccupantsController < ApplicationController
   # GET /occupants/1/edit
   def edit
     @occupant = Occupant.find(params[:id])
-    user = params[:user_id] ? User.find(params[:user_id]) : @current_user
-    @occupant.user = user
+    #user = params[:user_id] ? User.find(params[:user_id]) : @current_user
+    #@occupant.user = user
     @event = @occupant.event
   end
 
