@@ -34,11 +34,19 @@
 }
 
 #user-banner {
-     font-size: 10px;
-     font-style: italic;
-     //text-align: right;
-     color: #990000;
-     vertical-align: bottom;
+  color: #990000;
+  vertical-align: middle;
+
+  img {
+    padding-top: 5px;
+    float: left;
+  }
+  p {
+    padding: 10px 0px 20px 50px;
+    font-size: 10px;
+    font-style: italic;
+    vertical-align: middle;
+  }
 }
 
 /* body as 2-column arrangement */

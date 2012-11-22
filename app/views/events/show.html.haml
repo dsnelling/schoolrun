@@ -24,17 +24,23 @@
       %span.annotation unknown time
   %dt Location
   %dd= @event.location
-  -#%dt Status
-    %dd= @event.status
--#.clear
+
 %h3 Students:
 .show-details
   %table
     =render :partial => "person",
       :collection => @event.occupants || "No students"
-  - if @current_user.role == "Student"
+  
+  - if @current_user.role == "Student" &&
+         !@current_user.events.exists?(@event.id)
     = link_to "Request Pickup", new_occupant_path(:event_id => @event.id)
 
+  - if @current_user.role == "Parent"
+    - @current_user.children.each do |child|
+      -if !child.events.exists?(@event.id)
+        = link_to "Request Pickup for #{child.first_name}",
+          new_occupant_path(:event_id => @event.id, :user_id => child.id)
+      %br
 
 %h3 Drivers:
 .show-details

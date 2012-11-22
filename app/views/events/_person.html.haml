@@ -1,26 +1,46 @@
 -# _person.html.haml -- partial called as both occupant and driver.
 -# "occupant" or "driver" passed as parameter
+-# this is geting a bit complex to capture the various pickup and drive 
+-# combinations. I know putting this logic in a view is not elegant, but hey... 
+
 %tr
   %td.list-cell
     = avatar(person.user)
   %td.list-cell
-    -if @current_user.id == person.user.id && person.user.role == "Student"
+    -# children can add themselves to the list for pickup
+    - if @current_user.id == person.user.id && person.user.role == "Student"
       = link_to "#{person.user.first_name} #{person.user.surname}",
         edit_occupant_path(person)
-    -elsif @current_user.id == person.user.id && person.user.role == "Parent"
+
+      -# parents can nominate themselves to pickup
+    - elsif @current_user.id == person.user.id && person.user.role == "Parent"
       = link_to "#{person.user.first_name} #{person.user.surname}",
         edit_driver_path(person)
-    -else
+      -# parent can nominate their child to be picked up
+    - elsif person.user.parent && @current_user.id == person.user.parent.id
+      = link_to "#{person.user.first_name} #{person.user.surname}",
+        edit_occupant_path(person)
+
+    - else
       #{person.user.first_name} #{person.user.surname}
 
   %td.list-cell= person.status
   %td.list-cell= person.remarks
   %td.list-cell
+    -# children can cry-off themselves
     - if (@current_user.id == person.user.id || @is_admin ) && person.user.role == "Student"
       = button_to "Cry-off", occupant_path(person.id), :method => :delete
+
+      -# parents can cry-off their own children
+    - elsif person.user.parent && (@current_user.id == person.user.parent_id) && person.user.role == "Student"
+      = button_to "Cry-off", occupant_path(person.id), :method => :delete
+
+      -# parents can rescind their option to drive
     - elsif (@current_user.id == person.user.id || @is_admin) && person.user.role == "Parent"
       = button_to "Rescind", driver_path(person.id), :method => :delete
-    -elsif (@current_user.id != person.user.id) && person.user.role == "Parent"
+
+      -# one parent can takeover another parent
+    -elsif (@current_user.id != person.user.id) && @current_user.role == "Parent" && person.user.role == "Parent"
       = link_to "Takeover", edit_driver_path(person.id)
       &nbsp;
 .stuff

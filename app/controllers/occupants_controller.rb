@@ -31,6 +31,8 @@ class OccupantsController < ApplicationController
   def new
     @occupant = Occupant.new
     @event = Event.find(params[:event_id])
+    user = params[:user_id] ? User.find(params[:user_id]) : @current_user
+    @occupant.user = user
     @occupant.status = "Confirmed" # set as default 
 
     respond_to do |format|
@@ -42,15 +44,16 @@ class OccupantsController < ApplicationController
   # GET /occupants/1/edit
   def edit
     @occupant = Occupant.find(params[:id])
+    user = params[:user_id] ? User.find(params[:user_id]) : @current_user
+    @occupant.user = user
     @event = @occupant.event
   end
 
   # POST /occupants
   # POST /occupants.json
   def create
-    #@user = current_user
     event = Event.find(params[:event_id])
-    @occupant = @current_user.occupants.build(params[:occupant])
+    @occupant = Occupant.new(params[:occupant])
     @occupant.event = event
     
     respond_to do |format|

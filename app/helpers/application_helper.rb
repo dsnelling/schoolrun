@@ -12,9 +12,9 @@ module ApplicationHelper
     if !mobile_device?
       if user.facebook_id.to_s.length > 0
         image_tag "http://graph.facebook.com/#{user.facebook_id}/picture",
-           :size => "25x25"
+           :size => "40x40"
       else
-        image_tag "http://en.gravatar.com/avatar/#{user.gravatar_hash}?d=wavatar&s=25"
+        image_tag "http://en.gravatar.com/avatar/#{user.gravatar_hash}?d=wavatar&s=40"
       end
     end
   end

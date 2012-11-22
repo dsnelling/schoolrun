@@ -6,11 +6,11 @@
 
 %table.item-table
   %tr.list-header
+    %th Username
     %th Name
     %th Email
     %th Role
-    %th First name
-    %th Surname
+    %th Parent
     %th A
     - if @is_admin
       %th Action
@@ -18,10 +18,12 @@
   - @users.each do |user|
     %tr{:valign=>"top", :class => cycle('list-line-odd', 'list-line-even')}
       %td= user.name
+      %td #{user.first_name} #{user.surname}
       %td= user.email
       %td= user.role
-      %td= user.first_name
-      %td= user.surname
+      %td
+        = user.parent.name if user.parent
+        &nbsp;
       %td= avatar(user)
       -if @is_admin
         %td

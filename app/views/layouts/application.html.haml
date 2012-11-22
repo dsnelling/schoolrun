@@ -43,7 +43,8 @@
           %p#notice= notice
         - if @current_user
           #user-banner
-            #{@current_user.first_name} #{@current_user.surname} logged in
+            = avatar(@current_user)
+            %p #{@current_user.first_name} #{@current_user.surname} logged in
 
         = yield
 

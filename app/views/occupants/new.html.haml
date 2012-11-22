@@ -19,7 +19,6 @@
           %ul
             - @occupant.errors.full_messages.each do |msg|
               %li= msg
-      = f.hidden_field :event_id
       = f.hidden_field :user_id
       .field
         = f.label :status

@@ -7,10 +7,14 @@ require 'digest/sha2'
 class User < ActiveRecord::Base
   has_many :occupants
   has_many :drivers
-  #has_many :events, :through => :occupants
+  has_many :events, :through => :occupants
+  # set up parent/child relationship
+  has_many :children, :class_name => "User", :foreign_key => "parent_id"
+  belongs_to :parent, :class_name => "User"
 
   attr_accessible :email, :first_name, :password, :name, :role,
-    :password_confirmation, :surname, :change_password, :facebook_id
+    :password_confirmation, :surname, :change_password, :facebook_id,
+    :parent_id
   attr_accessor :password_confirmation
   attr_reader :password
 
