@@ -1,7 +1,7 @@
 module EventsHelper
   def add_traveller_link(traveller)
     # children can add themselves to the list for pickup
-    if @current_user.id == traveller.user.id && person.user.role == "Student"
+    if @current_user.id == traveller.user.id && traveller.user.role == "Student"
       link_to "#{traveller.user.first_name} #{traveller.user.surname}",
         edit_occupant_path(traveller)
 

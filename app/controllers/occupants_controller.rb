@@ -44,8 +44,6 @@ class OccupantsController < ApplicationController
   # GET /occupants/1/edit
   def edit
     @occupant = Occupant.find(params[:id])
-    #user = params[:user_id] ? User.find(params[:user_id]) : @current_user
-    #@occupant.user = user
     @event = @occupant.event
   end
 
@@ -58,7 +56,8 @@ class OccupantsController < ApplicationController
     
     respond_to do |format|
       if @occupant.save
-        format.html { redirect_to events_url, notice: 'Occupant was successfully created.' }
+        format.html { redirect_to event_url(@occupant.event),
+             notice: 'Occupant request was successfully created.' }
         format.json { render json: @occupant, status: :created, location: @occupant }
         expire_action :controller => "events", :action => "index"
       else
@@ -75,7 +74,8 @@ class OccupantsController < ApplicationController
 
     respond_to do |format|
       if @occupant.update_attributes(params[:occupant])
-        format.html { redirect_to @occupant, notice: 'Occupant was successfully updated.' }
+        format.html { redirect_to event_url(@occupant.event),
+            notice: 'Occupant was successfully updated.' }
         format.json { head :no_content }
         expire_action :controller => "events", :action => "index"
       else

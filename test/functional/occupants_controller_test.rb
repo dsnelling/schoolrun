@@ -15,12 +15,12 @@ class OccupantsControllerTest < ActionController::TestCase
     assert_difference('Occupant.count') do
       post :create, :event_id => events(:leh).id
     end
-    assert_redirected_to events_path
+    assert_redirected_to event_path(events(:leh).id)
   end
 
   test "should update occupant" do
     put :update, id: @occupant, occupant: { event_id: @occupant.event_id, status: @occupant.status, user_id: @occupant.user_id }
-    assert_redirected_to occupant_path(assigns(:occupant))
+    assert_redirected_to event_path(@occupant.event_id)
   end
 
   test "should destroy occupant" do

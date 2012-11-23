@@ -52,7 +52,8 @@ class DriversController < ApplicationController
 
     respond_to do |format|
       if @driver.save
-        format.html { redirect_to events_url, notice: 'Driver was successfully allocated.' }
+        format.html { redirect_to event_url(@driver.event),
+            notice: 'Driver was successfully allocated.' }
         format.json { render json: @driver, status: :created, location: @driver }
         expire_action :controller => "events", :action => "index"
       else
@@ -70,7 +71,8 @@ class DriversController < ApplicationController
 
     respond_to do |format|
       if @driver.update_attributes(params[:driver])
-        format.html { redirect_to @driver, notice: 'Driver was successfully updated.' }
+        format.html { redirect_to event_url(@driver.event),
+             notice: 'Driver was successfully updated.' }
         format.json { head :no_content }
               else
         format.html { render action: "edit" }

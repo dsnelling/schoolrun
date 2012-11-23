@@ -4,7 +4,7 @@ class DriversControllerTest < ActionController::TestCase
   setup do
     @driver = drivers(:one)
     @event = events(:one)
-    @user = users(:one)
+    @user = users(:bill) #must be parent !
     @driver.event = @event
     @driver.user = @user
     @driver.save
@@ -15,12 +15,12 @@ class DriversControllerTest < ActionController::TestCase
     assert_difference('Driver.count') do
       post :create, :event_id => events(:leh).id
     end
-    assert_redirected_to events_path
+    assert_redirected_to event_path(events(:leh).id)
   end
 
   test "should update driver" do
-    put :update, id: @driver, driver: { comment: @driver.comment, event_id: @driver.event_id, status: @driver.status, user_id: @driver.user_id }
-    assert_redirected_to driver_path(assigns(:driver))
+    put :update, id: @driver.id, driver: { comment: "here we go again", status: "Tentative" }
+    assert_redirected_to event_path(@driver.event)
   end
 
   test "should destroy driver" do
@@ -44,12 +44,13 @@ class DriversControllerTest < ActionController::TestCase
     assert_response :success
   end
   test "should show driver" do
-    get :show, id: @driver
+    get :show, id: @driver.id
     assert_response :success
   end
 
   test "should get edit" do
-     get :edit, id: @driver
+    #puts @driver.id, @driver.event.id
+    get :edit, id: @driver.id
     assert_response :success
   end
 
