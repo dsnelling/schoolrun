@@ -37,9 +37,9 @@
         %th.list-cell Updated
         %th.list-cell Action
 
-    =render :partial => "person",
+    =render :partial => "traveller",
       :collection => @event.occupants || "No students"
-    =render :partial => "person",
+    =render :partial => "traveller",
       :collection => @event.drivers || "No drivers"
 
   - if @current_user.role == "Student" &&  |

@@ -1,0 +1,18 @@
+-# _traveller.html.haml -- partial called as both occupant and driver.
+-# "occupant" or "driver" passed as parameter
+
+%tr
+  %td.list-cell.heavy
+    = traveller.user.role
+  %td.list-cell
+    = avatar(traveller.user)
+  %td.list-cell
+    = add_traveller_link(traveller)
+    &nbsp;
+  %td.list-cell= traveller.status
+  %td.list-cell= traveller.remarks
+  %td.list-cell= traveller.updated_at.strftime("%d-%b %H:%M")
+  %td.list-cell
+    = remove_traveller_link(traveller)
+    &nbsp;
+
