@@ -24,5 +24,13 @@ class UserMailer < ActionMailer::Base
     mail :to => "schoolrun@dcafsnelling.co.uk", :subject => "Test email"
     logger.debug "test email sent to schoolrun@dcafsnelling.co.uk....."
   end
+
+  def notification(params)
+    @message = params[:message]
+    user = params[:user]
+    email_with_name = "#{user.first_name} #{user.surname} <#{user.email}>"
+    mail :to => email_with_name, :subject => "Schoolrun message"
+    logger.debug "notification emails sent to #{user.email}"
+  end
     
 end

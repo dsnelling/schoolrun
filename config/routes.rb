@@ -8,7 +8,10 @@ Schoolrun::Application.routes.draw do
     get "admin" => :index
     get "about" => :about
     get "news" => :news
+    get "team_email" => :team_email
+    post "team_email" => :send_email
   end
+
   controller :sessions do
     get "login" => :new
     post "login" => :create

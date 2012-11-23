@@ -1,0 +1,17 @@
+%h3 Team email
+
+.schoolrun_form
+  = form_tag("/team_email", :method => "post") do
+    %fieldset
+      .field
+        = label_tag(:parent_email, "Parents:")
+        = check_box_tag(:parent_email)
+      .field
+        = label_tag(:student_email, "Students:")
+        = check_box_tag(:student_email)
+      .field
+        = label_tag(:message, "Message:")
+        = text_area_tag(:message, "(enter your message..)", :size => "35x6")
+      .actions
+        = submit_tag("Send")
+
