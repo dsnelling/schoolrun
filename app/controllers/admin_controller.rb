@@ -9,6 +9,7 @@ class AdminController < ApplicationController
     q = []
     q << "Parent" if params[:parent_email]
     q << "Student" if params[:student_email]
+    q << "Admin" if params[:admin_email]
     users = User.where(:role => q )
     m = params[:message]
     users.each do |u|

@@ -1,6 +1,7 @@
 %h1 Admin Menu
 
 %ul
+  %li= link_to "Send email to users", team_email_path
   %li= link_to "User Maintainence", users_path
   %li= link_to "Events Bulk Upload", new_import_path
   %li= link_to "Purge Old Events", purge_events_path

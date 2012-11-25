@@ -26,6 +26,8 @@ class UserMailer < ActionMailer::Base
   end
 
   def notification(params)
+    attachments.inline['heading_s.png'] = File.read(Rails.root.join("app",
+       "assets","images","heading_s.png"))
     @message = params[:message]
     user = params[:user]
     email_with_name = "#{user.first_name} #{user.surname} <#{user.email}>"

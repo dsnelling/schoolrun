@@ -10,8 +10,11 @@
         = label_tag(:student_email, "Students:")
         = check_box_tag(:student_email)
       .field
+        = label_tag(:admin_email, "Admins:")
+        = check_box_tag(:admin_email)
+      .field
         = label_tag(:message, "Message:")
-        = text_area_tag(:message, "(enter your message..)", :size => "35x6")
+        = text_area_tag(:message, "Dear ----- (enter your message..)", :size => "35x6")
       .actions
         = submit_tag("Send")
 
