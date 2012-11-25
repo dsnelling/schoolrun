@@ -1,21 +1,18 @@
-%div
-  :css
-    border-bottom: 2px solid;
-    color: #990000;
-    background: #CCCCCC;
-    font: 40px "Times New Roman", serif;
-    height: 120px;
-    text-align: center;
-    padding: 0;
-  = image_tag attachments['heading_s.png'].url
-  School Run
+!!!
+%html
+  %head
+    %title SchoolRun - Coordinate shared pickups from school clubs
+    %style{:type => "text/css"}
+
+  %body{ :bgcolor => "#f1f1f1" }
+    %div{ :style => 'border-bottom: 2px solid; color: #990000; background: #CCCCCC; font: 40px "Times New Roman", serif; height: 60px; text-align: center; padding: 0 0 2em 0;' }
+      = image_tag attachments['heading_s.jpg'].url, :height => 60,
+        :style => "float:left;"
+      School Run
     
-%div
-  :css
-    font-family: verdana,arial,helvetica,sans-serif;
-    font-size: 13px;
-    line-height: 18px;
-  = @message
+  %div{ :style => 'padding: 1em 0em 2em 2em; font-family: verdana,arial,helvetica,sans-serif;font-size: 13px; line-height: 18px;' }
+    :textile
+      #{@message}
 
 
 

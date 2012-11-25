@@ -41,6 +41,7 @@ gem 'jquerytools-rails', git: 'git://github.com/wafcio/jquerytools-rails.git'
 gem 'execjs'
 gem 'will_paginate', '~> 3.0.0'
 gem 'haml', '~> 3.1.7'
+gem 'RedCloth', :require => 'redcloth'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
