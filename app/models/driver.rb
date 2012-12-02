@@ -11,6 +11,11 @@ class Driver < ActiveRecord::Base
     remarks.to_s.length > 0
   end
 
+  # has record been updated 'recently'?
+  def has_changed?
+    updated_at > 8.hours.ago
+  end
+
   private
   def user_must_be_parent
     if user_id

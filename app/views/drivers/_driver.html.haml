@@ -1,6 +1,5 @@
 .driver{:class => driver.remark? && "ttip", :title => driver.remarks }
-  -#= avatar(driver.user)
-  #{driver.user.first_name} #{driver.user.surname}
+  %span{:class => highlight_if_changed(driver) } #{driver.user.first_name} #{driver.user.surname}
   %span.annotation= "T" if driver.status == "Tentative"
 
 
