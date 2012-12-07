@@ -34,7 +34,7 @@ end
 
 # stuff to support Heroku deployment/performance
 gem 'dalli'  # for memcached
-gem 'newrelic_rpm'
+gem 'newrelic_rpm', '~> 3.5.3.25'
 
 gem 'jquery-rails'
 gem 'jquerytools-rails', git: 'git://github.com/wafcio/jquerytools-rails.git'

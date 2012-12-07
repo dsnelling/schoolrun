@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_filter :current_user
-  caches_action :index, :layout => false, :expires_in => 28800.seconds
+  caches_action :index, :layout => false
 
   # GET /events
   # GET /events.json
