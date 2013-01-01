@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_filter :current_user
-  caches_action :index, :layout => false, :expires_in => 4.hours
+  #caches_action :index, :layout => false, :expires_in => 4.hours
 
   # GET /events
   # GET /events.json
@@ -58,7 +58,6 @@ class EventsController < ApplicationController
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
-    expire_action :action => "index"
   end
 
   # PUT /events/1
@@ -75,7 +74,7 @@ class EventsController < ApplicationController
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
-    expire_action :action => "index"
+    expire_fragment("event-#{@event.id}")
   end
 
   # DELETE /events/1
@@ -88,7 +87,6 @@ class EventsController < ApplicationController
       format.html { redirect_to events_url }
       format.json { head :no_content }
     end
-    expire_action :action => "index"
   end
 
   def purge

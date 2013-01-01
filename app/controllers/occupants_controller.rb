@@ -59,12 +59,12 @@ class OccupantsController < ApplicationController
         format.html { redirect_to event_url(@occupant.event),
              notice: 'Occupant request was successfully created.' }
         format.json { render json: @occupant, status: :created, location: @occupant }
-        expire_action :controller => "events", :action => "index"
       else
         format.html { render action: "new" }
         format.json { render json: @occupant.errors, status: :unprocessable_entity }
       end
     end
+    expire_fragment "event-#{@occupant.event.id}"
   end
 
   # PUT /occupants/1
@@ -77,12 +77,12 @@ class OccupantsController < ApplicationController
         format.html { redirect_to event_url(@occupant.event),
             notice: 'Occupant was successfully updated.' }
         format.json { head :no_content }
-        expire_action :controller => "events", :action => "index"
       else
         format.html { render action: "edit" }
         format.json { render json: @occupant.errors, status: :unprocessable_entity }
       end
     end
+    expire_fragment "event-#{@occupant.event.id}"
   end
 
   # DELETE /occupants/1
@@ -90,12 +90,13 @@ class OccupantsController < ApplicationController
   def destroy
     @occupant = Occupant.find(params[:id])
     @occupant.destroy
-    expire_action :controller => "events", :action => "index"
 
     respond_to do |format|
       format.html { redirect_to events_url }
       format.json { head :no_content }
     end
+    expire_fragment "event-#{@occupant.event.id}"
+
   end
 
 end

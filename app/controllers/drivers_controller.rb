@@ -55,12 +55,12 @@ class DriversController < ApplicationController
         format.html { redirect_to event_url(@driver.event),
             notice: 'Driver was successfully allocated.' }
         format.json { render json: @driver, status: :created, location: @driver }
-        expire_action :controller => "events", :action => "index"
       else
         format.html { render action: "new" }
         format.json { render json: @driver.errors, status: :unprocessable_entity }
       end
     end
+    expire_fragment "event-#{@driver.event.id}"
   end
 
   # PUT /drivers/1
@@ -79,7 +79,7 @@ class DriversController < ApplicationController
         format.json { render json: @driver.errors, status: :unprocessable_entity }
       end
     end
-    expire_action :controller => "events", :action => "index"
+    expire_fragment "event-#{@driver.event.id}"
   end
 
   # DELETE /drivers/1

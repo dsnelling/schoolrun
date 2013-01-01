@@ -12,8 +12,8 @@
 /config/database.yml
 
 # Ignore all logfiles and tempfiles.
-/log/*.log
-/tmp
+/log/*
+/tmp/*
 
 #--------
 *.rbc
@@ -22,8 +22,6 @@
 capybara-*.html
 .rspec
 /vendor/bundle
-/log/*
-/tmp/*
 /public/system/*
 /coverage/
 /spec/tmp/*
@@ -31,4 +29,8 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 *.swp
+.project
+
+# asset pipeline stuff is not wanted, as precompiled by Heroku
+/public/assets/*
 
