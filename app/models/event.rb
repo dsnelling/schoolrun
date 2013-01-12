@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
   has_many :occupants, :dependent => :destroy
   has_many :drivers, :dependent => :destroy
+  has_many :event_comments, :dependent => :destroy
   #has_many :users, :through => :occupants
 
   attr_accessible :description, :event_date, :event_time, :location, :status, :title, :to_from

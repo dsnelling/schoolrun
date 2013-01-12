@@ -1,5 +1,8 @@
 Schoolrun::Application.routes.draw do
 
+  resources :event_comments
+
+
   root to: 'events#index'
   #get "admin" => "admin#index"
   #get "about" => "admin#about"
@@ -25,6 +28,7 @@ Schoolrun::Application.routes.draw do
     collection do
       get :purge
     end
+    resources :event_comments, :except => [:index, :show]
   end 
   resources :occupants, :except => :index
   resources :drivers, :except => :index

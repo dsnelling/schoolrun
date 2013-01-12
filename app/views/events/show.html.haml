@@ -12,16 +12,16 @@
 %dl.schoolrun-list
   %dt Description
   %dd= @event.description
-  %dt To/From
-  %dd= @event.to_from
   %dt Event date
   %dd= @event.event_date.strftime("%a %d-%m-%Y")
-  %dt Event time
+  %dt Pickup/Dropoff time
   %dd
     - if @event.event_time
       = @event.event_time.strftime("%H:%M")
     - else
       %span.annotation unknown time
+  %dt To/From
+  %dd= @event.to_from
   %dt Location
   %dd= @event.location
 
@@ -60,7 +60,20 @@
     - else
       = link_to "Nominate as Driver", new_driver_path(:event_id => @event.id)
 
-%br/
+%h3 Comments
+.comment-box
+  - unless @event.event_comments.empty?
+    .dl
+      = render :partial => "comment",
+        :collection => @event.event_comments.sort_by(&:updated_at).reverse
+
+  = form_for([@event, @event.event_comments.new]) do |f|
+    .field
+      = f.label :comment, "Add a comment:"
+      %br/
+      = f.text_area :comment, :size => "45x2"
+      = f.submit "Post"
+
 %br/
 = link_to 'Edit Event', edit_event_path(@event)
 |

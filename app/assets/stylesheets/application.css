@@ -16,6 +16,7 @@
  *= require occupants
  *= require drivers
  *= require admin
+ *= require event_comments
  *= require jquery.ui.datepicker
  */
 

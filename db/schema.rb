@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121122131308) do
+ActiveRecord::Schema.define(:version => 20130111144542) do
 
   create_table "drivers", :force => true do |t|
     t.integer  "event_id"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(:version => 20121122131308) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.text     "remarks"
+  end
+
+  create_table "event_comments", :force => true do |t|
+    t.integer  "event_id"
+    t.text     "comment"
+    t.string   "comment_by"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "events", :force => true do |t|

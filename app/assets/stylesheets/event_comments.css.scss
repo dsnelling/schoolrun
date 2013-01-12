@@ -1,0 +1,32 @@
+// Place all the styles related to the event_comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.comment-box {
+  padding: 0 0 0 13px;
+
+  dl {
+    margin-bottom: 10px;
+  }
+
+  dt {
+    color: purple;
+    font-style: italic;
+  }
+
+  dd {
+    padding-bottom: 6px;
+
+    p {
+      margin: 0 0 2px 0;
+      //line-height: 16px;
+
+    }
+  }
+
+  .comment-links {
+    margin-left: 10em;
+    margin-bottom: 6px;
+  }
+
+}
+

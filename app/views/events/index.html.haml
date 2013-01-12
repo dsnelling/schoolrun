@@ -15,7 +15,7 @@
           %td.list-cell
             = event.event_date.strftime("%a\n%e-%m-%Y")
           %td.list-cell= link_to event.title, event_path(event)
-          %td.list-cell= truncate(event.description,:length => 30)
+          %td.list-cell= truncate(event.description,:length => 40)
           %td.list-cell
             <b>#{event.to_from}</b> #{event.location}
             %br/
