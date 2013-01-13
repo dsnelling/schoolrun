@@ -10,10 +10,21 @@ $.datepicker.setDefaults({
 
 $ -> $('.datepicker').datepicker();
 
-# ---tooltip - from jquery-tools
+# ---tooltip - from jquerytools
 $ -> $('.ttip').tooltip({
   opacity: 1.0,
   position: 'bottom center',
   offset: [0,15],
   effect: 'fade'
 });
+
+
+# --- overlay to pickup the comments for an event
+#  from jquerytools
+$ -> $("a[rel=#overlay1]").overlay
+  onBeforeLoad: ->
+    wrap = @getOverlay().find(".contentWrap")
+    wrap.load @getTrigger().attr("href")
+
+
+

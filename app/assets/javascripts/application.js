@@ -11,7 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquerytools
 //= require jquery_ujs
 //= require jquery.ui.datepicker
-//= require jquerytools
 //= require_tree .

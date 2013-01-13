@@ -1,0 +1,14 @@
+%dt
+  = "at #{comment.updated_at.strftime("%k:%M on %d-%b")},
+    #{author_by_name(comment.comment_by)} said:"
+%dd
+  :textile
+    #{comment.comment}
+  - if comment.comment_by.to_i == @current_user.id
+    .comment-links
+      = link_to 'Edit Comment', edit_event_event_comment_path(comment.event,
+         comment)
+      = link_to 'Delete Comment', event_comment_path(comment), method: :delete,
+        data: {confirm: 'Are you sure?' }
+
+

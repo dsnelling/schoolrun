@@ -7,10 +7,11 @@ class EventCommentsController < ApplicationController
   # GET /event_comments.json
   # should not come here
   def index
-    @event_comments = EventComment.all
+    @event = Event.find(params[:event_id])
+    @event_comments = @event.event_comments
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render :layout => false }
       format.json { render json: @event_comments }
     end
   end
@@ -59,6 +60,7 @@ class EventCommentsController < ApplicationController
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
+    expire_fragment "event_comments-#{@event.id}"
   end
 
   # PUT /event_comments/1
@@ -76,6 +78,7 @@ class EventCommentsController < ApplicationController
         format.json { render json: @event_comment.errors, status: :unprocessable_entity }
       end
     end
+    expire_fragment "event_comments-#{@event.id}"
   end
 
   # DELETE /event_comments/1
@@ -89,6 +92,7 @@ class EventCommentsController < ApplicationController
       format.html { redirect_to event_url(event) }
       format.json { head :no_content }
     end
+    expire_fragment "event_comments-#{event.id}"
   end
 
   private

@@ -28,7 +28,7 @@ Schoolrun::Application.routes.draw do
     collection do
       get :purge
     end
-    resources :event_comments, :except => [:index, :show]
+    resources :event_comments, :except => [:show]
   end 
   resources :occupants, :except => :index
   resources :drivers, :except => :index
