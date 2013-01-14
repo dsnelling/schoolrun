@@ -23,10 +23,10 @@
 .event-overlay {
   display: none;
   z-index: 10000;
-  background-color: #ffd0d0;
-  width: 550px;
+  background-color: #ffd7d7;
+  width: 350px;
   min-height: 200px;
-  border: 1px solid #990000;
+  border: 1px solid #666;
   opacity: 0.8;
 
 
@@ -41,7 +41,7 @@
   }
 
   h3 {
-    background-color: #FFd0d0;
+    background-color: #FFd7d7;
     padding-left: 10px;
   }
   h3:after {
@@ -53,13 +53,16 @@
     padding: 0 5px;
     background-color: #ffffff;
   }
+
   dt {
     font-style: italic;
     color: purple;
   }
+
   dd {
     color: #000;
   }
+
 }
 
 div.contentWrap {

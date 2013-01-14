@@ -4,7 +4,8 @@
  *= require_self
  *= require schoolrun_mobile
  *= require scaffolds
- *= require events
+ *= require events_mobile
+ *= require event_comments
  *= require occupants
  *= require drivers
  *= require jquery.ui.datepicker

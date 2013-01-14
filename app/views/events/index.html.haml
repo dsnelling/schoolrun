@@ -20,7 +20,7 @@
           %td.list-cell
             != link_to event.title, event_path(event)
             - if !event.event_comments.empty?
-              -#%span.annotation{:rel => "#overlay1"} View Comment
+              %br/
               = link_to "View Comment",event_event_comments_path(event),
                 {:rel => "#overlay1", :class => "annotation",
                 :style => "text-decoration:none"}

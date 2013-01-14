@@ -1,14 +1,11 @@
 - cache "event_comments-#{@event.id}", :expires_in => 4.hours do
-  %table
-    %tr
-      %th Comment posted
-      %th Comment by
-      %th Commment
-
-    - @event_comments.sort_by(&:updated_at).reverse.each do |event_comment|
-      %tr
-        %td= event_comment.updated_at.strftime("%H:%M; %d-%b")
-        %td= author_by_name(event_comment.comment_by)
-        %td
+  .comment-overlay
+    %h3= @event.title
+    %dl
+      - @event_comments.sort_by(&:updated_at).reverse.each do |c|
+        %dt
+          = "at #{c.updated_at.strftime("%k:%M on %d-%b")},
+            #{author_by_name(c.comment_by)} said:"
+        %dd
           :textile
-            "#{event_comment.comment}"
+            "#{c.comment}"
