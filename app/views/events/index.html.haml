@@ -13,8 +13,8 @@
 
 
     - @events.each do |event|
-      - cache "event-#{event.id}", :expires_in => 8.hours do
-        %tr{:valign => "top", :class => cycle('list-line-odd', 'list-line-even')}
+      %tr{:valign => "top", :class => cycle('list-line-odd', 'list-line-even')}
+        - cache "event-#{event.id}", :expires_in => 8.hours do
           %td.list-cell
             = event.event_date.strftime("%a\n%e-%m-%Y")
           %td.list-cell
