@@ -1,4 +1,4 @@
-- cache "event_comments-#{@event.id}", :expires_in => 4.hours do
+- cache "event_comments-#{@event.id}", :expires_in => 8.hours do
   .comment-overlay
     %h3= @event.title
     %dl

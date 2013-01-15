@@ -13,7 +13,7 @@
 
 
     - @events.each do |event|
-      - cache "event-#{event.id}", :expires_in => 4.hours do
+      - cache "event-#{event.id}", :expires_in => 8.hours do
         %tr{:valign => "top", :class => cycle('list-line-odd', 'list-line-even')}
           %td.list-cell
             = event.event_date.strftime("%a\n%e-%m-%Y")
@@ -21,7 +21,7 @@
             != link_to event.title, event_path(event)
             - if !event.event_comments.empty?
               %br/
-              = link_to "View Comment",event_event_comments_path(event),
+              = link_to "Comment",event_event_comments_path(event),
                 {:rel => "#overlay1", :class => "annotation",
                 :style => "text-decoration:none"}
           %td.list-cell= truncate(event.description,:length => 40)

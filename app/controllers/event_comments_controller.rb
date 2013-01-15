@@ -61,6 +61,7 @@ class EventCommentsController < ApplicationController
       end
     end
     expire_fragment "event_comments-#{@event.id}"
+    expire_fragment "event-#{@event.id}"
   end
 
   # PUT /event_comments/1
@@ -78,7 +79,8 @@ class EventCommentsController < ApplicationController
         format.json { render json: @event_comment.errors, status: :unprocessable_entity }
       end
     end
-    expire_fragment "event_comments-#{@event.id}"
+    expire_fragment "event-#{@event_comment.event.id}"
+    expire_fragment "event_comments-#{@event_comment.event.id}"
   end
 
   # DELETE /event_comments/1
@@ -93,6 +95,7 @@ class EventCommentsController < ApplicationController
       format.json { head :no_content }
     end
     expire_fragment "event_comments-#{event.id}"
+    expire_fragment "event-#{event.id}"
   end
 
   private
