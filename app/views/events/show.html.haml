@@ -52,7 +52,6 @@
       - if !child.events.exists?(@event.id)
         = link_to "Request Pickup for #{child.first_name}",
           new_occupant_path(:event_id => @event.id, :user_id => child.id)
-      %br
 
   - if @current_user.role == "Parent"
     - if @event.drivers.exists?
