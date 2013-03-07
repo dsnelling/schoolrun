@@ -1,5 +1,5 @@
 .occupant{:class => occupant.remark? && "ttip", :title => occupant.remarks }
-  #{occupant_counter+1}:
+  "#{occupant_counter+1}:"
   %span{:class => highlight_if_changed(occupant) }
     = occupant.user.first_name
     = occupant.user.surname
