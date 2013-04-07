@@ -31,9 +31,6 @@
       %td
         = f.text_field :location
         LEH, Boathouse, .....
-    %tr.field
-      %td= f.label :cancelled
-      %td= f.check_box :cancelled
   %br/
   .actions
     = f.submit

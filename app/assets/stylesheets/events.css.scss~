@@ -14,6 +14,18 @@
   margin-left: 4em;
 }
 
+.snot {
+  margin-left: 20px;
+  
+  a {
+    //margin-left: 20px;
+    font-weight: bold;
+    margin-bottom: 3px;
+    padding: 5px;
+    border: 1px solid #aa0000;
+  }
+}
+
 // tooltip for traveller's comments
 .ttip {
   color: #CC0099;
@@ -23,10 +35,10 @@
 .event-overlay {
   display: none;
   z-index: 10000;
-  background-color: #ffd7d7;
-  width: 350px;
+  background-color: #ffd0d0;
+  width: 550px;
   min-height: 200px;
-  border: 1px solid #666;
+  border: 1px solid #990000;
   opacity: 0.8;
 
 
@@ -41,7 +53,7 @@
   }
 
   h3 {
-    background-color: #FFd7d7;
+    background-color: #FFd0d0;
     padding-left: 10px;
   }
   h3:after {
@@ -53,12 +65,10 @@
     padding: 0 5px;
     background-color: #ffffff;
   }
-
   dt {
     font-style: italic;
     color: purple;
   }
-
   dd {
     color: #000;
   }
@@ -68,9 +78,10 @@ div.contentWrap {
   color: #333;
   //height: 441px;
   overflow-y: auto;
+
 }
 
-.cancelled {
+tr.cancelled {
     //color: #999;
     text-decoration:line-through;
 }

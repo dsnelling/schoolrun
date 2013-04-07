@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130111144542) do
+ActiveRecord::Schema.define(:version => 20130407115935) do
 
   create_table "drivers", :force => true do |t|
     t.integer  "event_id"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20130111144542) do
     t.string   "status"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.boolean  "cancelled"
   end
 
   create_table "occupants", :force => true do |t|

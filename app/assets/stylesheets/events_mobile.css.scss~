@@ -70,7 +70,7 @@ div.contentWrap {
   overflow-y: auto;
 }
 
-.cancelled {
+tr.cancelled {
     //color: #999;
     text-decoration:line-through;
 }

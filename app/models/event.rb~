@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
   has_many :event_comments, :dependent => :destroy
   #has_many :users, :through => :occupants
 
-  attr_accessible :description, :event_date, :event_time, :location, :status, :title, :to_from, :cancelled
+  attr_accessible :description, :event_date, :event_time, :location, :status, :title, :to_from
 
   TO_FROM_TYPES = ["To", "From"]
   LOCATION_TYPES = ["","LEH", "Boat House"]
