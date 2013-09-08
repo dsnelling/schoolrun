@@ -87,11 +87,11 @@ class DriversController < ApplicationController
   def destroy
     @driver = Driver.find(params[:id])
     @driver.destroy
-    expire_action :controller => "events", :action => "index"
     respond_to do |format|
       format.html { redirect_to events_url }
       format.json { head :no_content }
     end
+    expire_fragment "event-#{@driver.event.id}"
   end
 
 end

@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   def index
     # get all the event records since yesterday, order by event date
     @events = Event.where("event_date >= ?",(Time.now.beginning_of_day))
-      .paginate( :page => params[:page], :per_page => 20).order(
+      .paginate( :page => params[:page], :per_page => 30).order(
         "event_date, event_time")
 
     respond_to do |format|

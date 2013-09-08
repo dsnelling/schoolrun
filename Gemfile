@@ -33,7 +33,8 @@ group :assets do
 end
 
 # stuff to support Heroku deployment/performance
-gem 'dalli'  # for memcached
+gem 'memcachier'
+gem 'dalli', '~> 1.0.5'  # for memcached 
 gem 'newrelic_rpm', '~> 3.5.3.25'
 
 gem 'jquery-rails'
