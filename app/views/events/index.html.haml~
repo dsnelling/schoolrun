@@ -1,3 +1,4 @@
+-# setup jquery popup box for the event comments
 #overlay1.event-overlay
   .contentWrap
 
@@ -12,7 +13,8 @@
 
 
     - @events.each do |event|
-      %tr{:valign => "top", :class => cycle('list-line-odd', 'list-line-even'), :class => event.cancelled? && "cancelled"}
+      -# loop through the events, one row for each event. each event is cached as a fragment
+      %tr{:valign => "top", :class => [cycle('list-line-odd', 'list-line-even'),  event.cancelled? && "cancelled"]}
         - cache "event-#{event.id}", :expires_in => 8.hours do
           %td.list-cell
             != event.event_date.strftime("%a<br>%e-%m-%Y")
@@ -21,8 +23,11 @@
             %br/
             = truncate(event.description,:length => 50)
             - if !event.event_comments.empty?
+              -# if there is a comment aganist this event, show the start the first comment and make a link
+                to the popup box. popup box uses jquery
               %br/
-              = link_to "Comment",event_event_comments_path(event),
+              = link_to truncate(event.event_comments.first.comment, :truncate => 40),
+                event_event_comments_path(event),
                 {:rel => "#overlay1", :class => "annotation",
                 :style => "text-decoration:none"}
           %td.list-cell
