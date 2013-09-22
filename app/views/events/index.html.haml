@@ -36,9 +36,9 @@
             = event.event_time.strftime("%H:%M") if event.event_time
             &nbsp;
           %td.list-cell
-            = render(event.occupants)
+            = render(event.occupants.order("created_at"))
           %td.list-cell
-            = render(event.drivers)
+            = render(event.drivers.order("created_at"))
 
   %span.annotation
     T = Tentative
