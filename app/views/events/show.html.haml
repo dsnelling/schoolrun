@@ -43,9 +43,9 @@
         %th.list-cell Action
 
     =render :partial => "traveller",
-      :collection => @event.occupants || "No students"
+      :collection => @event.occupants.order("created_at") || "No students"
     =render :partial => "traveller",
-      :collection => @event.drivers || "No drivers"
+      :collection => @event.drivers.order("created_at") || "No drivers"
 
   - if @current_user.role == "Student" &&  |
        !@current_user.events.exists?(@event.id)  |
