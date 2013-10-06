@@ -1,7 +1,18 @@
 %h1 News and Updates
 .about
   %dl
-    %dt 1-Jan-2012
+    %dt Apr-2013
+    %dd
+      Minor updates:
+      %ul
+        %li
+          Added ability to mark event as cancelled. Cancelled events remain
+          listed, but are crossed-out on the main events page
+        %li
+          Identifies when an event is last updated
+        %li
+          Reformatting to fit on the page better
+    %dt 1-Jan-2013
     %dd minor big fixes to get pagination working correctly
     %dt 2-Dec-2012
     %dd Now highlights any entries that have changed in the last 8 hours

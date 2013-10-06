@@ -26,5 +26,12 @@ $ -> $("a[rel=#overlay1]").overlay
     wrap = @getOverlay().find(".contentWrap")
     wrap.load @getTrigger().attr("href")
 
+# --- overlay to pickup the remarks for an traveller
+#  from jquerytools
+$ -> $("a[rel=#overlay-traveller]").overlay
+  onBeforeLoad: ->
+    wrap = @getOverlay().find(".contentWrap")
+    wrap.load @getTrigger().attr("href")
+
 
 

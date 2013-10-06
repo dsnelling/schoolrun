@@ -32,7 +32,7 @@ class DriversController < ApplicationController
     @driver.status = "Confirmed" # set as default
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { render :layout => false } # new.html.erb
       format.json { render json: @driver }
     end
   end
@@ -41,6 +41,7 @@ class DriversController < ApplicationController
   def edit
     @driver = Driver.find(params[:id])
     @event = @driver.event
+    render :layout => false
   end
 
   # POST /drivers

@@ -1,3 +1,8 @@
+
+-# setup jquery popup box for the event comments
+#overlay-traveller.traveller
+  .contentWrap
+
 %h1= "Event : #{@event.title}"
 - if @event.errors.any?
   #error_explanation
@@ -30,41 +35,46 @@
       %b CANCELLED
 
 %h3 Passengers and Drivers:
-.snot
-  %table.list-table
-    -if @event.occupants.exists? || @event.drivers.exists?
-      %tr.list-header
-        %th.list-cell Role
-        %th.list-cell Avatar
-        %th.list-cell Name
-        %th.list-cell Status
-        %th.list-cell Remarks
-        %th.list-cell Updated
-        %th.list-cell Action
+%table.list-table
+  -if @event.occupants.exists? || @event.drivers.exists?
+    %tr.list-header
+      %th.list-cell Role
+      %th.list-cell Avatar
+      %th.list-cell Name
+      %th.list-cell Status
+      %th.list-cell
+        Passenger's/ Driver's
+        %br/
+        Remarks
+      %th.list-cell Updated
+      %th.list-cell Action
 
-    =render :partial => "traveller",
-      :collection => @event.occupants.order("created_at") || "No students"
-    =render :partial => "traveller",
+  =render :partial => "traveller",
+    :collection => @event.occupants.order("created_at") || "No students"
+  =render :partial => "traveller",
       :collection => @event.drivers.order("created_at") || "No drivers"
-
+.snot
   - if @current_user.role == "Student" &&  |
        !@current_user.events.exists?(@event.id)  |
-    = link_to "Request Pickup", new_occupant_path(:event_id => @event.id)
+    = link_to "Request Pickup", new_occupant_path(:event_id => @event.id),
+      {:rel => "#overlay-traveller"}
 
   - if @current_user.role == "Parent"
     - @current_user.children.each do |child|
       - if !child.events.exists?(@event.id)
         = link_to "Request Pickup for #{child.first_name}",
-          new_occupant_path(:event_id => @event.id, :user_id => child.id)
+          new_occupant_path(:event_id => @event.id, :user_id => child.id),
+            {:rel => "#overlay-traveller"}
 
   - if @current_user.role == "Parent"
     - if @event.drivers.exists?
       = link_to "Nominate as Additional Driver",
-        new_driver_path(:event_id => @event.id)
+        new_driver_path(:event_id => @event.id),{:rel => "#overlay-traveller"}
     - else
-      = link_to "Nominate as Driver", new_driver_path(:event_id => @event.id)
+      = link_to "Nominate as Driver", new_driver_path(:event_id => @event.id),
+        {:rel => "#overlay-traveller"}
 
-%h3 Comments:
+%h3 Comments on event:
 .comment-box
   - unless @event.event_comments.empty?
     .dl

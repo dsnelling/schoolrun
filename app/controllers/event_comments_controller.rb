@@ -42,7 +42,7 @@ class EventCommentsController < ApplicationController
   # GET /event_comments/1/edit
   def edit
     @event_comment = EventComment.find(params[:id])
-  end
+   end
 
   # POST /event_comments
   # POST /event_comments.json

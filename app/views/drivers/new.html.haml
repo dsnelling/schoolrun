@@ -1,37 +1,37 @@
-%h2 Nominate as Driver for:
-%dl
-  %dd
+.traveller-content
+  %p
+    %b Nominate as Driver for:
     #{@event.event_date.strftime("%a %d-%m-%y")}
     -if @event.event_time
       at #{@event.event_time.strftime("%H:%M")}
-  %dd
+      \::
     %b= @event.title 
 
 
-.schoolrun_form
-  %fieldset
-    %legend Please enter details
-    = form_for @driver, :url => drivers_path(:event_id => @event.id) do |f|
-      - if @driver.errors.any?
-        #error_explanation
-          %h2
-            = pluralize(@driver.errors.count, "error")
-            prohibited this driver from being saved:
+  .schoolrun_form
+    %fieldset
+      %legend Please enter details
+      = form_for @driver, :url => drivers_path(:event_id => @event.id) do |f|
+        - if @driver.errors.any?
+          #error_explanation
+            %h2
+              = pluralize(@driver.errors.count, "error")
+              prohibited this driver from being saved:
 
-          %ul
-            - @driver.errors.full_messages.each do |msg|
-              %li= msg
+            %ul
+              - @driver.errors.full_messages.each do |msg|
+                %li= msg
 
-      = f.hidden_field :event_id
-      = f.hidden_field :user_id
+        = f.hidden_field :event_id
+        = f.hidden_field :user_id
 
-      .field
-        = f.label :status
-        = f.select :status, Driver::STATUS_TYPES
-      .field
-        = f.label :remarks
-        = f.text_area :remarks, :rows => 2
-      .actions
-        = f.submit "Nominate"
+        .field
+          = f.label :status
+          = f.select :status, Driver::STATUS_TYPES
+        .field
+          = f.label :remarks
+          = f.text_area :remarks, :rows => 2
+        .actions
+          = f.submit "Nominate"
 
-= link_to 'Back', event_path(@event)
+  = link_to 'Back', event_path(@event)

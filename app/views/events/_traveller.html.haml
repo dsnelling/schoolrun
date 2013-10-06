@@ -10,7 +10,9 @@
     = add_traveller_link(traveller)
     &nbsp;
   %td.list-cell= traveller.status
-  %td.list-cell= traveller.remarks
+  %td.list-cell
+    = traveller_remarks(traveller)
+    &nbsp;
   %td.list-cell= traveller.updated_at.strftime("%d-%b %H:%M")
   %td.list-cell
     = remove_traveller_link(traveller)
