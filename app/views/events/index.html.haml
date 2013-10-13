@@ -1,5 +1,5 @@
 -#
-  index.html - displays table with summary listing of all events. Provides link to individual events to allow further
+  events/index.html - displays table with summary listing of all events. Provides link to individual events to allow further
   information to be displayed/manlipulated.
   This is effectively the main screen of the application.
 
@@ -24,9 +24,9 @@
           %td.list-cell
             != event.event_date.strftime("%a<br>%e-%m-%Y")
           %td.list-cell
-            != ">>" if event.to_from == "To"
+            != "&#8658;" if event.to_from == "To"
             != link_to event.title, event_path(event)
-            != ">>" if event.to_from == "From"
+            != "&#8658" if event.to_from == "From"
             %br/
             = truncate(event.description,:length => 50)
             - if !event.event_comments.empty?
