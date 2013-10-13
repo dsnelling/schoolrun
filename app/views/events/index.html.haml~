@@ -1,3 +1,8 @@
+-#
+  index.html - displays table with summary listing of all events. Provides link to individual events to allow further
+  information to be displayed/manlipulated.
+  This is effectively the main screen of the application.
+
 -# setup jquery popup box for the event comments
 #overlay1.event-overlay
   .contentWrap
@@ -19,7 +24,9 @@
           %td.list-cell
             != event.event_date.strftime("%a<br>%e-%m-%Y")
           %td.list-cell
+            != ">>" if event.to_from == "To"
             != link_to event.title, event_path(event)
+            != "&rarr;" if event.to_from == "From"
             %br/
             = truncate(event.description,:length => 50)
             - if !event.event_comments.empty?

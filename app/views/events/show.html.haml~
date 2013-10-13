@@ -69,7 +69,7 @@
   - if @current_user.role == "Parent"
     - if @event.drivers.exists?
       = link_to "Nominate as Additional Driver",
-        new_driver_path(:event_id => @event.id)
+        new_driver_path(:event_id => @event.id),{:rel => "#overlay-traveller"}
     - else
       = link_to "Nominate as Driver", new_driver_path(:event_id => @event.id),
         {:rel => "#overlay-traveller"}
@@ -96,5 +96,7 @@
 = link_to 'Update Event', edit_event_path(@event)
 |
 = link_to 'Delete Event', event_path(@event), method: :delete, data: { confirm: 'Are you sure?' }
+|
+= link_to "New Event", new_event_path
 |
 = link_to 'Back to Events Listing', events_path

@@ -1,4 +1,8 @@
-
+-#
+  // events:show.html
+  // shows the details for one event, inculding details of travellers
+  // includes form to post comments on the event, and links to add/remove travellers
+  
 -# setup jquery popup box for the event comments
 #overlay-traveller.traveller
   .contentWrap
@@ -96,5 +100,7 @@
 = link_to 'Update Event', edit_event_path(@event)
 |
 = link_to 'Delete Event', event_path(@event), method: :delete, data: { confirm: 'Are you sure?' }
+|
+= link_to "New Event", new_event_path
 |
 = link_to 'Back to Events Listing', events_path
